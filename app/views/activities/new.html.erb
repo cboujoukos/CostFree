@@ -1,0 +1,10 @@
+Create a new Activity
+<%= form_for @activity do |f| %>
+  <label>Name</label><br>
+  <%= f.text_field :title %><br>
+  <label>Description</label><br>
+  <%= f.text_area :description, class: "form-control" %><br>
+  <br>
+  <%= f.submit %>
+
+<% end %>

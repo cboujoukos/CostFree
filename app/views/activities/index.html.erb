@@ -1,0 +1,5 @@
+<%= link_to "Add a new free activity", new_activity_path %>
+
+<% @activities.each do |activity| %>
+  <%= render partial: "activity_details", locals: {activity: activity} %>
+<% end %>
