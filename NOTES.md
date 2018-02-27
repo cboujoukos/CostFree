@@ -6,6 +6,7 @@ Get help setting up rspec and write a couple of tests to make sure its working.
 
 Help setting up admin role. (Pundit/CanCanCan/other)
 
-Best way to drop database to reseed with new data??
+///// Best way to drop database to reseed with new data??
 
 Storing photos in a database (for both the photo class and potentially for the category class)
+--Paperclip!

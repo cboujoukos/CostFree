@@ -9,7 +9,7 @@
             <% @categories.each.with_index do |category, i|%>
               <div class="col-sm-3">
                 <div class="card box-shadow">
-                  <%= category.title if i < 4 %>
+                  <%= link_to category.title, category_path(category) if i < 4 %>
                 </div>
               </div>
             <% end %>
@@ -25,7 +25,7 @@
 
           <div class="row">
 
-              <%= render partial: "activities/activity_details", collection: @activities, as: :activity %>
+              <%= render partial: "activities/activity_details_for_index", collection: @activities, as: :activity %>
 
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">

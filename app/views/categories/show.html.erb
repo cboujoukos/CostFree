@@ -1,6 +1,7 @@
 <div class="row justify-content-between">
     <div class="col-4">
       <h1><%= @category.title %></h1>
+      <%= image_tag @category.icon.url(:medium) %>
     </div>
     <div class="col-3">
       <h3><%= link_to "All Categories", categories_path %></h3>
@@ -10,7 +11,7 @@
 <div class="container">
   <div class="row">
     <% @category.activities.each do |activity| %>
-        <%= render partial: "activities/activity_details", locals: { activity: activity} %>
+        <%= render partial: "activities/activity_details_for_index", locals: { activity: activity} %>
     <% end %>
   </div>
 </div>
