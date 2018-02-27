@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'welcome/home'
+
   resources :categories
   resources :activities
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'activities#index'
+  root 'welcome#home'
 end

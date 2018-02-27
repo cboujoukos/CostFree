@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#10.times do |i|
+#  User.create!(email: "user_#{i}@aol.com", password: "password")
+#end
+
 10.times do |i|
-  User.create!(email: "user_#{i}@aol.com", password: "password")
+  Activity.create!(title: "Activity #{i + 4}", description: "This is the description of the activity")
+end
+
+10.times do |i|
+  Category.create!(title: "Category #{i+1}")
 end
