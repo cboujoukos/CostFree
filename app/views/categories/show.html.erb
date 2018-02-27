@@ -1,0 +1,16 @@
+<div class="row justify-content-between">
+    <div class="col-4">
+      <h1><%= @category.title %></h1>
+    </div>
+    <div class="col-3">
+      <h3><%= link_to "All Categories", categories_path %></h3>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <% @category.activities.each do |activity| %>
+        <%= render partial: "activities/activity_details", locals: { activity: activity} %>
+    <% end %>
+  </div>
+</div>

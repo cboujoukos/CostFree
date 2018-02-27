@@ -3,3 +3,5 @@ config.scoped_views (initializers/devise.rb) is set to true to allow for customi
 Get help setting up rspec and write a couple of tests to make sure its working.
 
 Help setting up admin role.
+
+Best way to drop database to reseed with new data??
