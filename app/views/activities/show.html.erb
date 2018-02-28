@@ -1,2 +1,11 @@
 <h1><%= @activity.title %></h1>
 <p><%= @activity.description %></p>
+
+<br><br><br>
+<h3>Reviews</h3>
+<% @activity.reviews.each do |review| %>
+  <p><%= review.rating %> Stars</p>
+  <p><%= review.comment %></p>
+<% end %>
+<br><br>
+<%= link_to "Write a review for this activity", new_activity_review_path(@activity) %>

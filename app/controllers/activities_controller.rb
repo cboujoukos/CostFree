@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+  before_action :require_login, only: [:new, :create]
+
   def index
     @activities = Activity.all
   end
@@ -27,4 +29,6 @@ class ActivitiesController < ApplicationController
   def activity_params
     params.require(:activity).permit(:title, :description)
   end
+
+  
 end
