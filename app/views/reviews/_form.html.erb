@@ -1,0 +1,23 @@
+<% if review.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+            <ul>
+                <% review.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+<%= form_for([ :activity, review]) do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :activity_id, value: activity.id %>
+  <label>How many stars would you give this activity? (Enter 1 - 5)</label>
+  <%= f.text_field :rating %><br>
+
+  <label>Comments</label><br>
+  <%= f.text_area :comment, class: "form-control" %>
+
+  <%= f.submit  %>
+
+<% end %>

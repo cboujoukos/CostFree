@@ -12,4 +12,5 @@ Storing photos in a database (for both the photo class and potentially for the c
 --Paperclip!
 
 
-new Review form not working properly. activity_id is sometimes coming up as nil??
+Permission Problems. Having trouble authorizing users to be able to edit their reviews.
+--My nested parameters are showing up incorrectly in the url. http://localhost:3000/activities/6/reviews/3/edit SHOULD be editing review with id of 3 and activity_id of 6, but it is the other way around
