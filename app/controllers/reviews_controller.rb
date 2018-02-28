@@ -7,12 +7,13 @@ class ReviewsController < ApplicationController
 
   def new
     @activity = Activity.find(params[:activity_id])
-    @review = @activity.reviews.build(user_id: current_user.id)
+    @review = Review.new
   end
 
   def create
     binding.pry
     @review = Review.new(review_params)
+    @activity = @review.activity
     if @review.save
       redirect_to @review.activity
     else

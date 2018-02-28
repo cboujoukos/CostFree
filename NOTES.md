@@ -10,3 +10,6 @@ Help setting up admin role. (Pundit/CanCanCan/other)
 
 Storing photos in a database (for both the photo class and potentially for the category class)
 --Paperclip!
+
+
+new Review form not working properly. activity_id is sometimes coming up as nil??
