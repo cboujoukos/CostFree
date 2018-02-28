@@ -5,6 +5,9 @@ Create a new Activity
   <label>Description</label><br>
   <%= f.text_area :description, class: "form-control" %><br>
   <br>
+  <label>Categories</label><br>
+  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :title) %>
+  <br>
   <%= f.submit %>
 
 <% end %>

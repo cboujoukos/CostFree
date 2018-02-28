@@ -27,8 +27,8 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description)
+    params.require(:activity).permit(:title, :description, :category_ids => [])
   end
 
-  
+
 end

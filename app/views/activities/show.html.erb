@@ -1,5 +1,10 @@
 <h1><%= @activity.title %></h1>
 <p><%= @activity.description %></p>
+<br>
+<h3>Categories</h3>
+<% @activity.categories.each do |category| %>
+<p><%= category.title %></p>
+<% end %>
 
 <br><br><br>
 <h3>Reviews</h3>
