@@ -1,0 +1,23 @@
+<% if activity.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+            <ul>
+                <% activity.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+  <%= form_for activity do |f| %>
+    <label>Name</label><br>
+    <%= f.text_field :title %><br>
+    <label>Description</label><br>
+    <%= f.text_area :description, class: "form-control" %><br>
+    <br>
+    <label>Categories</label><br>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :title) %>
+    <br>
+    <%= f.submit %>
+
+  <% end %>

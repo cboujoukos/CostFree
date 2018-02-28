@@ -18,8 +18,22 @@ class ActivitiesController < ApplicationController
     if @activity.save
       redirect_to activity_path(@activity)
     else
-      flash.now[:alert] = " You must enter a name and description of the activity"
+      flash.now[:alert] = "You must enter a name and description of the activity"
       render "new"
+    end
+  end
+
+  def edit
+    @activity = Activity.find_by(id: params[:id])
+  end
+
+  def update
+    @activity = Activity.find_by(id: params[:id])
+    @activity.update(activity_params)
+    if @activity.save
+      redirect_to activity_path(@activity)
+    else
+      render "edit"
     end
   end
 

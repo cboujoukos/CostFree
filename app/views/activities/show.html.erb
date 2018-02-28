@@ -1,6 +1,8 @@
 <h1><%= @activity.title %></h1>
 <p><%= @activity.description %></p>
 <br>
+<%= link_to "Edit Activity", edit_activity_path(@activity), class: "btn btn-primary" %>
+<br>
 <h3>Categories</h3>
 <% @activity.categories.each do |category| %>
 <p><%= category.title %></p>
