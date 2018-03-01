@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    raise params.inspect
     @activity = Activity.new(activity_params)
     if @activity.save
       redirect_to activity_path(@activity)
@@ -41,7 +42,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :category_ids => [])
+    params.require(:activity).permit(:title, :description, :category_ids => [], location_attributes: [:street_address_1, :street_address_2, :city, :state, :zip_code, :country])
   end
 
 

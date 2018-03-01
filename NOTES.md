@@ -20,3 +20,5 @@ Eventually add Geocoder and include Google Map pins for activity locations.
 I have set up activities to belong_to a location (optionally), do i NEED to set up the other side of that association with either a has_one or has_many for the location model??
 
 Upload up to 3 images when an activity is created?
+
+STRUGGLING WITH MY CUSTOM ACCEPTS NESTED ATTRIBUTES METHODS
