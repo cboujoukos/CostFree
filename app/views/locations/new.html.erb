@@ -1,0 +1,26 @@
+<%= form_for @location do |f| %>
+<legend>Location</legend>
+  <label>Street Address</label><br>
+  <%= f.text_field :street_address_1 %><br>
+  <label>Street Address</label><br>
+  <%= f.text_field :street_address_2 %><br>
+  <label>City</label><br>
+  <%= f.text_field :city %><br>
+  <label>State</label><br>
+  <%= f.text_field :state %><br>
+  <label>Zip Code</label><br>
+  <%= f.text_field :zip_code %><br>
+  <label>Country</label><br>
+  <%= f.text_field :country %><br>
+  <fieldset>
+    <legend>Activities</legend>
+    <%= f.fields_for :activities do |activity_fields| %>
+    <%= activity_fields.label :title %><br>
+    <%= activity_fields.text_field :title %><br>
+    <%= activity_fields.label :description %><br>
+    <%= activity_fields.text_area :description %><br>
+    <% end %>
+  </fieldset>
+
+  <%= f.submit  %>
+<% end %>

@@ -14,7 +14,6 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    raise params.inspect
     @activity = Activity.new(activity_params)
     if @activity.save
       redirect_to activity_path(@activity)
