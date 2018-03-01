@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228150410) do
+ActiveRecord::Schema.define(version: 20180301133103) do
 
   create_table "activities", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20180228150410) do
     t.string "suggested_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "location_id"
+    t.index ["location_id"], name: "index_activities_on_location_id"
   end
 
   create_table "activity_categories", force: :cascade do |t|
@@ -37,6 +39,19 @@ ActiveRecord::Schema.define(version: 20180228150410) do
     t.string "icon_content_type"
     t.integer "icon_file_size"
     t.datetime "icon_updated_at"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "street_address_1"
+    t.string "street_address_2"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.string "country"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
