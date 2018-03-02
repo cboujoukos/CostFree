@@ -2,7 +2,10 @@
 <p><%= @activity.description %></p>
 <br>
 <%= link_to "Edit Activity", edit_activity_path(@activity), class: "btn btn-primary" %>
-<%= render partial: 'locations/location_card', locals: { location: @activity.location } %>
+<% if @activity.location != nil %>
+  <%= render partial: 'locations/location_card', locals: { location: @activity.location } %>
+<% end %>
+
 <br><br>
 <h3>Categories</h3>
 <% @activity.categories.each do |category| %>

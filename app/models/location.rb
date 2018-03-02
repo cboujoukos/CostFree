@@ -3,11 +3,9 @@ class Location < ApplicationRecord
   accepts_nested_attributes_for :activities
 
   def activities_attributes=(activities_attributes)
-    activities_attributes.each do |key, value|
-      if !value[:title].blank?
-        activity = Activity.find_by(:id => value["id"]) || Activity.find_by(:title => value["title"]) || Activity.new
-        activity.title = value["title"]
-        activity.save
+    activities_attributes.each do |activity_attributes|
+      if !activity_attributes.last[:title].blank? && !activity_attributes.last[:description].blank?
+        self.activities.build(activity_attributes.last)
       end
     end
   end

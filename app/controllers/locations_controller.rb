@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find_by(params[:id])
+    @location = Location.find_by(id: params[:id])
   end
 
   private
@@ -34,7 +34,7 @@ class LocationsController < ApplicationController
       :state,
       :zip_code,
       :country,
-      activities_attributes: [
+      :activities_attributes => [
         :title,
         :description,
         :suggested_duration,
@@ -42,5 +42,37 @@ class LocationsController < ApplicationController
       ]
     )
   end
+#params =  {
+#  "utf8"=>"✓",
+#  "authenticity_token"=>"m9dOE7R8Ny7+M1OqmE5dPbth2X0veU+Kc78AkzeDKC/lsvQi6nDTptx+Zwy3mNS#52KzAvEY/N+W/UH9J/rFEZQ==",
+#  "location"=>{
+#    "street_address_1"=>"999 Josephine St",
+#    "street_address_2"=>"",
+#    "city"=>"Flanders",
+#    "state"=>"IL",
+#    "zip_code"=>"76432",
+#    "country"=>"United States",
+#    "activities_attributes"=>{
+#      "0"=>{
+#        "title"=>"Ham Party",
+#        "description"=>"Free ham based products every Tuesday",
+#        "category_ids"=>["", "11", "12"]
+#        },
+#      "1"=>{
+#        "title"=>"",
+#        "description"=>"",
+#        "category_ids"=>[""]
+#        },
+#      "2"=>{
+#        "title"=>"",
+#        "description"=>"",
+#        "category_ids"=>[""]
+#        }
+#      }
+#    },
+#    "commit"=>"Create Location",
+#    "controller"=>"locations",
+#    "action"=>"create"
+#  }
 
 end
