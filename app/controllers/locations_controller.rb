@@ -1,6 +1,9 @@
 class LocationsController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
+  def index
+  end
+
   def new
     @location = Location.new
     @location.activities.build()
@@ -9,6 +12,16 @@ class LocationsController < ApplicationController
   end
 
   def create
+    @location = Location.new(location_params)
+    if @location.save
+      redirect_to @location
+    else
+      render "new"
+    end
+  end
+
+  def show
+    @location = Location.find_by(params[:id])
   end
 
   private
@@ -24,7 +37,8 @@ class LocationsController < ApplicationController
       activities_attributes: [
         :title,
         :description,
-        :suggested_duration
+        :suggested_duration,
+        :category_ids => []
       ]
     )
   end

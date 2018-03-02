@@ -23,5 +23,10 @@ STRUGGLING WITH MY CUSTOM ACCEPTS NESTED ATTRIBUTES METHODS. How to Edit Locatio
 
 CONTEXT: NEW LOCATION FORM
 -- Description text_areas showing up outlined in red as if surrounded by field_with_errors.
--- Submit not working. I think I need to customize activities_attributes=(attributes) method so that it does not try to create a new activity if fields are left blank.
+
 --How do I get category tags to show up for each activity? (I almost have to go into a double nesting scenario, which seems crazy.)
+
+-- New Activities are not being saved
+
+CONTEXT: LOCATION SHOW PAGE
+--regardless of URL params, always displaying card for Location[1]

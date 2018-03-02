@@ -41,7 +41,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :category_ids => [], location_attributes: [:street_address_1, :street_address_2, :city, :state, :zip_code, :country])
+    params.require(:activity).permit(:title, :description, suggested_duration, :category_ids => [], location_attributes: [:street_address_1, :street_address_2, :city, :state, :zip_code, :country])
   end
 
 

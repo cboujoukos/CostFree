@@ -1,4 +1,14 @@
 <%= form_for @location do |f| %>
+<% if @location.errors.any? %>
+      <div id="error_explanation">
+          <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+          <ul>
+              <% @location.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+          </ul>
+      </div>
+  <% end %>
 <legend>Location</legend>
   <label>Street Address</label><br>
   <%= f.text_field :street_address_1 %><br>
@@ -15,10 +25,15 @@
   <fieldset>
     <legend>Activities</legend>
     <%= f.fields_for :activities do |activity_fields| %>
+    <label>Activity</label>
     <%= activity_fields.label :title %><br>
     <%= activity_fields.text_field :title %><br>
     <%= activity_fields.label :description %><br>
     <%= activity_fields.text_area :description %><br>
+
+    <legend>Categories</legend>
+    <%= activity_fields.collection_check_boxes(:category_ids, Category.all, :id, :title) %>
+    <br><br>
     <% end %>
   </fieldset>
 
