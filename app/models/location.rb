@@ -5,7 +5,12 @@ class Location < ApplicationRecord
   def activities_attributes=(activities_attributes)
     activities_attributes.each do |i, activity_attributes|
       if !activity_attributes[:title].blank? && !activity_attributes[:description].blank?
-        self.activities.build(activity_attributes)
+        if activity_attributes[:id].blank?
+          self.activities.build(activity_attributes)
+        else
+          activity = Activity.find_by(id: activity_attributes[:id])
+          activity.update(activity_attributes)
+        end
       end
     end
   end

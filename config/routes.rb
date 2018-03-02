@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'welcome/home'
 
-  resources :locations, only: [:index, :new, :create, :show]
+  resources :locations
   resources :categories
   resources :activities do
     resources :reviews

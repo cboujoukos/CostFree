@@ -24,6 +24,23 @@ class LocationsController < ApplicationController
     @location = Location.find_by(id: params[:id])
   end
 
+  def edit
+    @location = Location.find_by(id: params[:id])
+    @location.activities.build()
+    @location.activities.build()
+    @location.activities.build()
+  end
+
+  def update
+    @location = Location.find_by(id: params[:id])
+    @location.update(location_params)
+    if @location.save
+      redirect_to location_path(@location)
+    else
+      render "edit"
+    end
+  end
+
   private
 
   def location_params
@@ -35,6 +52,7 @@ class LocationsController < ApplicationController
       :zip_code,
       :country,
       :activities_attributes => [
+        :id,
         :title,
         :description,
         :suggested_duration,

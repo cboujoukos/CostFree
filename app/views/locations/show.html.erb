@@ -1,6 +1,10 @@
 <%= render partial: "location_card", locals: { location: @location } %>
 
 <h3>Activities</h3>
-<% @location.activities.each do |activity| %>
-  <%= render partial: "activities/activity_details_for_index", locals: { activity: activity } %>
-<% end %>
+<div class="row">
+  <% @location.activities.each do |activity| %>
+
+    <%= render partial: "activities/activity_details_for_index", locals: { activity: activity } %>
+
+  <% end %>
+</div>
