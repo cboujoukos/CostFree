@@ -18,7 +18,7 @@
     <br>
     <fieldset>
       <legend>Location</legend>
-      <%= f.fields_for :location, @activity.build_location do |location_fields| %>
+      <%= f.fields_for :location do |location_fields| %>
       <label>Street Address</label><br>
       <%= location_fields.text_field :street_address_1 %><br>
       <label>Street Address</label><br>

@@ -11,7 +11,7 @@ Storing photos in a database (for both the photo class and potentially for the c
 
 
 Permission Problems. Having trouble authorizing users to be able to edit their reviews.
---My nested parameters are showing up incorrectly in the url. http://localhost:3000/activities/6/reviews/3/edit SHOULD be editing review with id of 3 and activity_id of 6, but it is the other way around
+XXXX--My nested parameters are showing up incorrectly in the url. http://localhost:3000/activities/6/reviews/3/edit SHOULD be editing review with id of 3 and activity_id of 6, but it is the other way around
 
 Eventually add Geocoder and include Google Map pins for activity locations.
 
@@ -24,9 +24,15 @@ STRUGGLING WITH MY CUSTOM ACCEPTS NESTED ATTRIBUTES METHODS. How to Edit Locatio
 CONTEXT: NEW LOCATION FORM
 -- Description text_areas showing up outlined in red as if surrounded by field_with_errors.
 
---How do I get category tags to show up for each activity? (I almost have to go into a double nesting scenario, which seems crazy.)
+XXXX--How do I get category tags to show up for each activity? (I almost have to go into a double nesting scenario, which seems crazy.)
 
--- New Activities are not being saved
+XXXX-- New Activities are not being saved
 
 CONTEXT: LOCATION SHOW PAGE
---regardless of URL params, always displaying card for Location[1]
+XXXX--regardless of URL params, always displaying card for Location[1]
+
+CONTEXT: CUSTOM [ACCEPTS_NESTED_ATTRIBUTES] IN LOCATION.RB
+XXXX-- params hash is a little off, had to Juryrig method to chain .last to get desired result.
+
+CONTEXT: LOCATION SHOW PAGE
+-- activity cards showing up in a single column rather than 3 column structure

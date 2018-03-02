@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
+    @activity.build_location()
   end
 
   def create
@@ -25,6 +26,7 @@ class ActivitiesController < ApplicationController
 
   def edit
     @activity = Activity.find_by(id: params[:id])
+    @activity.build_location() unless @activity.location
   end
 
   def update
@@ -41,7 +43,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, suggested_duration, :category_ids => [], location_attributes: [:street_address_1, :street_address_2, :city, :state, :zip_code, :country])
+    params.require(:activity).permit(:title, :description, :suggested_duration, :category_ids => [], location_attributes: [:street_address_1, :street_address_2, :city, :state, :zip_code, :country])
   end
 
 

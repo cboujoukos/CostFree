@@ -3,9 +3,9 @@ class Location < ApplicationRecord
   accepts_nested_attributes_for :activities
 
   def activities_attributes=(activities_attributes)
-    activities_attributes.each do |activity_attributes|
-      if !activity_attributes.last[:title].blank? && !activity_attributes.last[:description].blank?
-        self.activities.build(activity_attributes.last)
+    activities_attributes.each do |i, activity_attributes|
+      if !activity_attributes[:title].blank? && !activity_attributes[:description].blank?
+        self.activities.build(activity_attributes)
       end
     end
   end
