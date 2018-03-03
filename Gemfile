@@ -33,6 +33,10 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 # Use Capistrano for deployment
