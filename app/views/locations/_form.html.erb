@@ -10,29 +10,50 @@
       </div>
   <% end %>
 <legend>Location</legend>
-  <label>Street Address</label><br>
-  <%= f.text_field :street_address_1 %><br>
-  <label>Street Address</label><br>
-  <%= f.text_field :street_address_2 %><br>
-  <label>City</label><br>
-  <%= f.text_field :city %><br>
-  <label>State</label><br>
-  <%= f.text_field :state %><br>
-  <label>Zip Code</label><br>
-  <%= f.text_field :zip_code %><br>
+<div class="form-group">
+  <label>Street Address 1</label><br>
+  <%= f.text_field :street_address_1, class: "form-control" %>
+</div>
+<div class="form-group">
+  <label>Street Address 2</label><br>
+  <%= f.text_field :street_address_2, class: "form-control" %>
+</div>
+<div class="form-row">
+  <div class="col">
+    <label>City</label>
+    <%= f.text_field :city, class: "form-control" %>
+  </div>
+  <div class="col">
+    <label>State</label>
+    <%= f.text_field :state, class: "form-control" %>
+  </div>
+  <div class="col">
+    <label>Zip Code</label>
+    <%= f.text_field :zip_code, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
   <label>Country</label><br>
-  <%= f.text_field :country %><br>
+  <%= f.country_select :country, priority_countries: ["US"], priority_countries_divider: "~~~~~~", class: "form-control" %><br>
+</div>
   <fieldset>
-    <legend>Activities</legend>
+    <legend>Add Activities</legend>
     <%= f.fields_for :activities do |activity_fields| %>
-    <label>Activity</label>
-    <%= activity_fields.label :title %><br>
-    <%= activity_fields.text_field :title %><br>
-    <%= activity_fields.label :description %><br>
-    <%= activity_fields.text_area :description %><br>
+    <label>New Activity</label>
+    <div class="form-group">
+      <%= activity_fields.label :title %><br>
+      <%= activity_fields.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= activity_fields.label :description %><br>
+      <%= activity_fields.text_area :description, class: "form-control" %>
+    </div>
+
 
     <legend>Categories</legend>
-    <%= activity_fields.collection_check_boxes(:category_ids, Category.all, :id, :title) %>
+    <%= activity_fields.collection_check_boxes(:category_ids, Category.all, :id, :title) do |b| %>
+      <%= b.label(class: "label-checkbox") { b.check_box + b.object.title} %>
+    <% end %>
     <br><br>
     <% end %>
   </fieldset>
