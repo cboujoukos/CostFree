@@ -11,4 +11,16 @@ class Activity < ApplicationRecord
   def location_attributes=(location_attributes)
     self.build_location(location_attributes)
   end
+
+  def self.most_popular
+    joins(:reviews).group("activities.id").order("(sum(reviews.rating)/count(*)) desc")
+  end
+
+  def self.no_reviews
+    Activity.includes(:reviews).where( :reviews => { :id => nil } )
+  end
+
+  def self.first_twelve
+    Activity.limit(12)
+  end
 end

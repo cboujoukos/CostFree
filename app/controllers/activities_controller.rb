@@ -39,6 +39,12 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def most_popular
+    with_null = Activity.no_reviews
+    without_null = Activity.most_popular
+    @activities = without_null + with_null
+  end
+
 
   private
 

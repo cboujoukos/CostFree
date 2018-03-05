@@ -1,5 +1,13 @@
-<%= link_to "Add a new free activity", new_activity_path %>
-
-<% @activities.each do |activity| %>
-  <%= render partial: "activity_details", locals: {activity: activity} %>
-<% end %>
+<h1>Free Activities</h1>
+<div class="row justify-content-between">
+  <div class="col-sm-3">
+    <%= link_to "Add a new free activity", new_activity_path, class: "btn btn-primary" %>
+  </div>
+  <div class="col-sm-3">
+    <%= link_to "Most Popular", activities_most_popular_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<br>
+<div class="row">
+      <%= render partial: "activities/activity_details_for_index", collection: @activities, as: :activity %>
+</div>
