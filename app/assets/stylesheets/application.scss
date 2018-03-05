@@ -24,3 +24,16 @@
    height: 100px;
    width: 100px
  }
+
+ .checkbox_container {
+   display: inline-block;
+   vertical-align: -1px;
+   margin: 5px;
+  }
+ .checkbox_container input {
+   display: inline;
+  }
+ .checkbox_container .collection_check_boxes{
+   display: inline;
+   vertical-align: -5px;
+  }

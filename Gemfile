@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'country_select'
+gem 'geocoder'
+
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
