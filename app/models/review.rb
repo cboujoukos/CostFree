@@ -2,6 +2,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :activity
 
+  validates_presence_of :title
   validates_presence_of :rating
   validates :rating, numericality: { only_integer: true }
   validates :rating, inclusion: 1..5

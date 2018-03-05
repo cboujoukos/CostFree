@@ -16,15 +16,26 @@
 <br><br><br>
 <h3>Reviews</h3>
 <% @activity.reviews.each do |review| %>
-  <p><%= review.rating %> Stars</p>
-  <div class="comment-box">
-    <p><%= review.comment %></p>
+  <div class="review-box card">
+    
+    <div class="card-header">
+      <%= review.rating %> Stars! <%= review.title %>
+    </div>
+    <div class="card-body">
+      <div class="comment-box">
+        <p><%= review.comment %></p>
+      </div>
+      <div class="card-footer">
+        <p>~<%= review.user.email %></p>
+        <p><%= review.updated_at.strftime("%m/%d/%Y") %></p>
+      </div>
+    </div>
   </div>
-  <p>-<%= review.user.email %></p>
   <% if current_user == review.user %>
     <%= link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-primary" %>
   <% end %>
-  <br>
+  <br><br>
+
 <% end %>
 <br><br>
 <%= link_to "Write a review for this activity", new_activity_review_path(@activity) %>
