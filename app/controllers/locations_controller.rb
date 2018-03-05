@@ -46,6 +46,7 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:location).permit(
+      :user_id,
       :street_address_1,
       :street_address_2,
       :city,
@@ -54,6 +55,7 @@ class LocationsController < ApplicationController
       :country,
       :activities_attributes => [
         :id,
+        :user_id,
         :title,
         :description,
         :suggested_duration,

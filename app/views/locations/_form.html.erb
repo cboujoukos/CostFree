@@ -10,6 +10,7 @@
       </div>
   <% end %>
 <legend>Location</legend>
+<%= f.hidden_field :user_id, value: current_user.id %>
 <div class="form-group">
   <label>Street Address 1</label><br>
   <%= f.text_field :street_address_1, class: "form-control" %>
@@ -34,11 +35,12 @@
 </div>
 <div class="form-group">
   <label>Country</label><br>
-  <%= f.country_select :country, priority_countries: ["US"], priority_countries_divider: "~~~~~~", class: "form-control" %><br>
+  <%= f.country_select :country, priority_countries: ["US"], priority_countries_divider: "~~~~~~", class: "form-control btn btn-secondary dropdown-toggle" %><br>
 </div>
   <fieldset>
     <legend>Add Activities</legend>
     <%= f.fields_for :activities do |activity_fields| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <label>New Activity</label>
     <div class="form-group">
       <%= activity_fields.label :title %><br>

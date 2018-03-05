@@ -10,7 +10,7 @@
         </div>
     <% end %>
 
-
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <div class="form-group">
       <label>Name</label><br>
       <%= f.text_field :title, class: "form-control" %><br>
@@ -23,6 +23,7 @@
     <fieldset>
       <legend>Location</legend>
       <%= f.fields_for :location do |location_fields| %>
+      <%= location_fields.hidden_field :user_id, value: current_user.id %>
       <div class="form-group">
         <label>Street Address 1</label><br>
         <%= location_fields.text_field :street_address_1, class: "form-control" %>
