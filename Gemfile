@@ -37,6 +37,8 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 
+gem 'font-awesome-rails'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'

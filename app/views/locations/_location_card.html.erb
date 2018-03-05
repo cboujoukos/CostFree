@@ -17,7 +17,7 @@
           <div class="btn-group">
             <%= button_to "View", location_path(location), method: :get, class: "btn btn-sm   btn-outline-secondary" unless params[:action] == 'show' && params[:controller] == 'locations' %>
             <!-- unless current_page?(controller: 'locations', action: 'show') -->
-            <%= button_to "Edit", edit_location_path(location), method: :get, class: "btn   btn-sm btn-outline-secondary" %>
+            <%= button_to "Edit", edit_location_path(location), method: :get, class: "btn   btn-sm btn-outline-secondary" if current_user.admin? || location.user_id == current_user.id %>
           </div>
           <small class="text-muted">Last Updated:<br><%= location.updated_at.strftime("%m/%d/%Y") %></small>
         </div>

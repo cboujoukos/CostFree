@@ -15,6 +15,7 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
+ @import "font-awesome";
 
  .field_with_errors input, .field_with_errors textarea {
    border: 1px solid red
@@ -24,5 +25,3 @@
    height: 100px;
    width: 100px
  }
-
- 
