@@ -40,3 +40,9 @@ XXXX -- activity cards showing up in a single column rather than 3 column struct
 CONTEXT: LOCATION EDIT FORM
 XXXX-- Activities are resaved as new rows
 XXXX-- If i try to update an activity it creates a new activity
+
+
+CONTEXT: HOME PAGE CSS
+-- New activity button shifts outside of container in smaller viewports
+-- LETS ADD A FOOTER
+-- Bootstrap col's are not defaulting to equal height.. WHY?!

@@ -1,7 +1,8 @@
 <h1>All Locations</h1>
-
-<div class="row">
-  <% @locations.each do |location| %>
-    <%= render partial: "location_card", locals: {location: location} %>
-  <% end %>
+<div class="album bg-light py-5 px-5">
+  <div class="row">
+    <% @locations.each do |location| %>
+      <%= render partial: "location_card", locals: {location: location} %>
+    <% end %>
+  </div>
 </div>
