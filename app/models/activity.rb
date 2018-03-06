@@ -21,6 +21,10 @@ class Activity < ApplicationRecord
   end
 
   def self.first_twelve
-    Activity.limit(12)
+    limit(12)
+  end
+
+  def self.recently_added
+    order(created_at: :desc)
   end
 end

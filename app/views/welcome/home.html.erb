@@ -27,6 +27,9 @@
 
       <div class="album py-5 bg-light">
         <div class="container">
+          <div class="row justify-content-md-center">
+            <h1>Recently Added Activities</h1>
+          </div>
           <div class="row justify-content-between">
             <div class="col-3">
               <%= link_to "See all activities", activities_path, class: "btn btn-outline-dark my-2" %>
@@ -39,7 +42,7 @@
           <div class="row">
 
 
-              <%= render partial: "activities/activity_details_for_index", collection: @first_twelve_activities, as: :activity %>
+              <%= render partial: "activities/activity_details_for_index", collection: @newest_activities, as: :activity %>
 
 
             <!-- <div class="col-md-4">
