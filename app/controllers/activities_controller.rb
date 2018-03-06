@@ -15,7 +15,6 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    binding.pry
     @activity = Activity.new(activity_params)
     if @activity.save
       redirect_to activity_path(@activity)
