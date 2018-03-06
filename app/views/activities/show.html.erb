@@ -42,7 +42,13 @@
     <div class="review-box card rounded">
 
       <div class="card-header">
-        <%= pluralize(review.rating, "star") %>! <%= review.title %>
+
+        <span class="star fa fa-star <%= "checked" if review.rating > 0 %>"></span>
+        <span class="star fa fa-star <%= "checked" if review.rating > 1 %>"></span>
+        <span class="star fa fa-star <%= "checked" if review.rating > 2 %>"></span>
+        <span class="star fa fa-star <%= "checked" if review.rating > 3 %>"></span>
+        <span class="star fa fa-star <%= "checked" if review.rating > 4 %>"></span>
+        <%= review.title %>
       </div>
       <div class="card-body">
         <div class="comment-box">

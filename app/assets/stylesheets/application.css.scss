@@ -40,9 +40,23 @@
    border: 1px solid #388087;
  }
 
+ .star.checked {
+    color: orange;
+}
+
  body {
    background-color: #388087
  }
+
+ .footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
 
 ////////////Trying to get col's equal height (SHOULD DEFAULT TO THIS!)/////////
  .row.match-my-cols {
