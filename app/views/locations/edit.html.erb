@@ -54,7 +54,9 @@
       </div>
 
       <legend>Categories</legend>
-      <%= activity_fields.collection_check_boxes(:category_ids, Category.all, :id, :title) %>
+      <%= activity_fields.collection_check_boxes(:category_ids, Category.all, :id, :title) do |b| %>
+        <%= b.label(class: "label-checkbox") { b.check_box + b.object.title} %>
+      <% end %>
       <br><br>
       <% end %>
     </fieldset>
