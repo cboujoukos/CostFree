@@ -42,6 +42,11 @@ class LocationsController < ApplicationController
     end
   end
 
+  def new_activity
+    @location = Location.find_by(id: params[:id])
+    @activity = Activity.new
+  end
+
   private
 
   def location_params

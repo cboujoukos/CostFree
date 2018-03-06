@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'welcome/home'
 
   get 'activities/most_popular', to: 'activities#most_popular'
+  get 'locations/:id/new_activity', to: "locations#new_activity", as: "new_location_activity"
 
   resources :locations
   resources :categories

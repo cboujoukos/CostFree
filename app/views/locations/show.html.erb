@@ -1,10 +1,18 @@
-<%= render partial: "location_card", locals: { location: @location } %>
+<div class="album bg-light py-5 px-5 my-5">
+  <div class="row justify-content-between">
+    <%= render partial: "location_card", locals: { location: @location } %>
+    <div class="col-md-3">
+      <%= link_to "Add an Activity", new_location_activity_path, class: "btn btn-outline-dark" %>
+    </div>
+  </div>
 
-<h3>Activities</h3>
-<div class="row">
-  <% @location.activities.each do |activity| %>
 
-    <%= render partial: "activities/activity_details_for_index", locals: { activity: activity } %>
+  <h3>Activities</h3>
+  <div class="row">
+    <% @location.activities.each do |activity| %>
 
-  <% end %>
+      <%= render partial: "activities/activity_details_for_index", locals: { activity: activity } %>
+
+    <% end %>
+  </div>
 </div>

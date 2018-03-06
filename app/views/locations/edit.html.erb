@@ -1,43 +1,64 @@
 <!-- <%= render partial: "form", locals: { location: @location } %> -->
-
-<%= form_for @location do |f| %>
-<% if @location.errors.any? %>
-      <div id="error_explanation">
-          <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
-          <ul>
-              <% @location.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-          </ul>
-      </div>
-  <% end %>
-<legend>Location</legend>
-  <label>Street Address</label><br>
-  <%= f.text_field :street_address_1 %><br>
-  <label>Street Address</label><br>
-  <%= f.text_field :street_address_2 %><br>
-  <label>City</label><br>
-  <%= f.text_field :city %><br>
-  <label>State</label><br>
-  <%= f.text_field :state %><br>
-  <label>Zip Code</label><br>
-  <%= f.text_field :zip_code %><br>
-  <label>Country</label><br>
-  <%= f.text_field :country %><br>
-  <fieldset>
-    <legend>Add Activities</legend>
-    <%= f.fields_for :activities, @location.activities.build do |activity_fields| %>
-    <label>Activity</label>
-    <%= activity_fields.label :title %><br>
-    <%= activity_fields.text_field :title %><br>
-    <%= activity_fields.label :description %><br>
-    <%= activity_fields.text_area :description %><br>
-
-    <legend>Categories</legend>
-    <%= activity_fields.collection_check_boxes(:category_ids, Category.all, :id, :title) %>
-    <br><br>
+<div class="album bg-light py-5 px-5 my-5">
+  <%= form_for @location do |f| %>
+  <% if @location.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+            <ul>
+                <% @location.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
     <% end %>
-  </fieldset>
+    <legend>Location</legend>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="form-group">
+      <label>Street Address 1</label><br>
+      <%= f.text_field :street_address_1, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Street Address 2</label><br>
+      <%= f.text_field :street_address_2, class: "form-control" %>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label>City</label>
+        <%= f.text_field :city, class: "form-control" %>
+      </div>
+      <div class="col">
+        <label>State</label>
+        <%= f.text_field :state, class: "form-control" %>
+      </div>
+      <div class="col">
+        <label>Zip Code</label>
+        <%= f.text_field :zip_code, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Country</label><br>
+      <%= f.country_select :country, priority_countries: ["US"], priority_countries_divider: "~~~~~~", class: "form-control btn btn-secondary dropdown-toggle" %><br>
+    </div>
+    <fieldset>
+      <legend>Add Activities</legend>
+      <%= f.fields_for :activities, @location.activities.build do |activity_fields| %>
+      <%= activity_fields.hidden_field :user_id, value: current_user.id %>
+      <label>New Activity</label>
+      <div class="form-group">
+        <%= activity_fields.label :title %><br>
+        <%= activity_fields.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= activity_fields.label :description %><br>
+        <%= activity_fields.text_area :description, class: "form-control" %>
+      </div>
 
-  <%= f.submit  %>
-<% end %>
+      <legend>Categories</legend>
+      <%= activity_fields.collection_check_boxes(:category_ids, Category.all, :id, :title) %>
+      <br><br>
+      <% end %>
+    </fieldset>
+
+    <%= f.submit class: "btn btn-outline-dark" %>
+  <% end %>
+</div>
