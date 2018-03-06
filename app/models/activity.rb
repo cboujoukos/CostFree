@@ -16,6 +16,10 @@ class Activity < ApplicationRecord
     joins(:reviews).group("activities.id").order("(sum(reviews.rating)/count(*)) desc")
   end
 
+  def avg_rating
+    self.reviews.collect{|r| r.rating}.inject(0){|sum,x| sum + x }/self.reviews.count.to_f
+  end
+
   def self.no_reviews
     Activity.includes(:reviews).where( :reviews => { :id => nil } )
   end
