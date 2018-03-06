@@ -1,4 +1,10 @@
-<h3>Create a new activity or <%= link_to "Add a location with multiple activities", new_location_path %></h3>
+<div class="album bg-light py-5 px-5 my-5">
+  <div class="row">
+    <div class="col">
+      <h3>Create a new activity</h3>
+      <%= link_to "Or add a location with multiple activities", new_location_path, class: "btn btn-outline-dark" %>
+    </div>
+  </div>
 
-<%= render partial: "form", locals: { activity: @activity} %>
-<br><br>
+  <%= render partial: "form", locals: { activity: @activity} %>
+</div>

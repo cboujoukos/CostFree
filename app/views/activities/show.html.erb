@@ -1,50 +1,63 @@
 <div class="album bg-light py-5 px-5 my-5">
-  <h1><%= @activity.title %></h1>
-  <p><%= @activity.description %></p>
-  <br><br>
-  <% if @activity.location %>
-    <%= render partial: 'locations/location_card', locals: { location: @activity.location } %>
-  <% end %>
+  <div class="row">
+    <div class="col">
+      <h1><%= @activity.title %></h1>
+      <p><%= @activity.description %></p>
+      <br><br>
+      <h3>Categories</h3>
+      <% @activity.categories.each do |category| %>
+      <span><%= category.title %> &emsp;</span>
+      <% end %>
+      <br><br>
+      <div class="row justify-content-between">
+        <div class="col">
+          <%= link_to "Edit Activity", edit_activity_path(@activity), class: "btn btn-outline-dark" %>
+        </div>
+        <div class="col-md-3">
+          <%= link_to "All Activities", activities_path, class: "btn btn-outline-dark" %>
+        </div>
+      </div>
+
+    </div>
+    <% if @activity.location %>
+      <%= render partial: 'locations/location_card', locals: { location: @activity.location } %>
+    <% end %>
+  </div>
+
 
   <br>
-  <h3>Categories</h3>
-  <% @activity.categories.each do |category| %>
-  <span><%= category.title %> &emsp;</span>
-  <% end %>
-  <br><br>
-  <%= link_to "Edit Activity", edit_activity_path(@activity), class: "btn btn-outline-dark" %>
-</div>
-<br>
-<div class="row justify-content-between">
-  <div class="col">
-    <h3>Reviews</h3>
-  </div>
-  <div class="col-2">
-    <%= link_to "Write a Review", new_activity_review_path(@activity), class: "btn btn-outline-dark" %>
-  </div>
 </div>
 
-<% @activity.reviews.each do |review| %>
-  <div class="review-box card">
-
-    <div class="card-header">
-      <%= review.rating %> Stars! <%= review.title %>
+<div class="album bg-light py-5 px-5 my-5">
+  <div class="row justify-content-between">
+    <div class="col">
+      <h3>Reviews</h3>
     </div>
-    <div class="card-body">
-      <div class="comment-box">
-        <p><%= review.comment %></p>
-      </div>
-      <div class="card-footer">
-        <p>~<%= review.user.email %></p>
-        <p><%= review.updated_at.strftime("%m/%d/%Y") %></p>
-      </div>
+    <div class="col-md-3">
+      <%= link_to "Write a Review", new_activity_review_path(@activity), class: "btn btn-outline-dark" %>
     </div>
   </div>
-  <% if current_user == review.user %>
-    <%= link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-primary" %>
-  <% end %>
-  <br><br>
+  <br>
+  <% @activity.reviews.each do |review| %>
+    <div class="review-box card rounded">
 
-<% end %>
-<br><br>
-<%= link_to "Write a review for this activity", new_activity_review_path(@activity) %>
+      <div class="card-header">
+        <%= review.rating %> Stars! <%= review.title %>
+      </div>
+      <div class="card-body">
+        <div class="comment-box">
+          <p><%= review.comment %></p>
+        </div>
+        <div class="card-footer">
+          <p>~<%= review.user.email %></p>
+          <p><%= review.updated_at.strftime("%m/%d/%Y") %></p>
+        </div>
+      </div>
+    </div>
+    <% if current_user == review.user %>
+      <%= link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark" %>
+    <% end %>
+    <br><br>
+
+  <% end %>
+</div

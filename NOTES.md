@@ -48,4 +48,4 @@ CONTEXT: HOME PAGE CSS
 -- Bootstrap col's are not defaulting to equal height.. WHY?!
 
 CONTEXT: ACTIVITY SHOW PAGE
--- New review button shifts outside of container in smaller viewports
+XXXX-- New review button shifts outside of container in smaller viewports

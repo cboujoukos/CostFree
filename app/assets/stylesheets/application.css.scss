@@ -21,13 +21,23 @@
    border: 1px solid red
  }
 
+ #error_explanation {
+   border: 1px solid red;
+   padding: 2px;
+   margin-bottom: 2px
+ }
+
+ #error_explanation li {
+   color: red
+ }
+
  .thumb {
    height: 100px;
    width: 100px
  }
 
  .review-box {
-   border: 1px solid blue;
+   border: 1px solid #388087;
  }
 
  body {
