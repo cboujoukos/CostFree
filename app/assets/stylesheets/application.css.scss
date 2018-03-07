@@ -16,6 +16,13 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
  @import "font-awesome";
+ @import url('https://fonts.googleapis.com/css?family=Mallanna|Montserrat|Open+Sans|Quicksand');
+
+
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Quicksand', sans-serif;
+// font-family: 'Mallanna', sans-serif;
 
  html {
    height: 100%;
@@ -26,8 +33,14 @@
     margin: 0;
     padding-bottom: 6rem;
     min-height: 100%;
-    background-color: #e3eeef
-    //background-color: #d7e6e8
+    background-color: #e3eeef;
+    font-family: 'Mallanna', sans-serif;
+    // font-family: 'Montserrat', sans-serif;
+    // background-color: #d7e6e8
+  }
+
+  .jumbotron {
+    // background-color: white
   }
 
 ////////// ERROR MESSAGES //////////

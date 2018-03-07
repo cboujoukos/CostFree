@@ -50,4 +50,6 @@ XXXX-- New activity button shifts outside of container in smaller viewports
 CONTEXT: ACTIVITY SHOW PAGE
 XXXX-- New review button shifts outside of container in smaller viewports
 
-ACTIVITY AVG_RATING 
+ACTIVITY AVG_RATING (half stars)
+
+ATTACH ICON IMAGE TO EACH CATEGORY
