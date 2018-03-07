@@ -3,6 +3,7 @@ class Activity < ApplicationRecord
   has_many :activity_categories
   has_many :categories, through: :activity_categories
   has_many :reviews
+  has_many :photos
   belongs_to :location, optional: true
 
   validates_presence_of :title

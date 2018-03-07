@@ -3,7 +3,7 @@ config.scoped_views (initializers/devise.rb) is set to true to allow for customi
 
 
 
-Help setting up admin role. (Pundit/CanCanCan/other)
+XXXX-- Help setting up admin role. (Pundit/CanCanCan/other)
 
 
 Storing photos in a database (for both the photo class and potentially for the category class)
