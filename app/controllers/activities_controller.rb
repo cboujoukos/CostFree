@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :require_login, only: [:new, :create]
+  before_action :require_login, only: [:new, :create, :edit, :update]
 
   def index
     @activities = Activity.all

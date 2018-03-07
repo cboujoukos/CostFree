@@ -4,5 +4,5 @@
     <%= render partial: "categories/category_card", locals: {categories: @categories} %>
   </div>
 
-  BUTTON TO ADD CATEGORY IF ADMIN
+  <%= link_to "Add New Category", new_category_path, class: "btn btn-outline-dark" if current_user.try(:admin?) %>
 </div>
