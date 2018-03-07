@@ -67,7 +67,7 @@
         <%= link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark" %>
       </div>
       <div class="col-md-3">
-        <%= button_to "Delete your review", activity_review_path(@activity), :method => :delete, class: "btn btn-outline-danger" %>
+        <%= link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
       </div>
     </div>
 

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:index, :show]
-  # before_action :authorized?, only: [:edit, :update, :delete]
+   before_action :authorize, only: [:edit, :update, :destroy]
 
   def index
     @reviews = Review.where(activity_id = params[:id])
@@ -39,7 +39,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    raise params.inspect
+    @activity = Activity.find_by(id: params[:activity_id])
+    @review = Review.find_by(id: params[:id])
+    @review.destroy
+    redirect_to @activity
   end
 
   private
@@ -51,6 +54,13 @@ class ReviewsController < ApplicationController
   def authorized?
     if current_user != Review.find_by(params[:id]).user
       flash[:error] = "You may only edit reviews that you created"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def authorize
+    unless current_user.try(:admin?) || current_user.id == Review.find_by(id: params[:id]).user_id
+      flash[:error] = "You are not authorized to edit this content."
       redirect_back(fallback_location: root_path)
     end
   end
