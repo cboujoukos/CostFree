@@ -1,0 +1,22 @@
+<div class="album bg-light py-5 px-5 my-5">
+  <h1>Upload A Photo</h1>
+  <br>
+  <%= form_for @photo, url: activity_photos_path, html: { multipart: true } do |f| %>
+  <% if @photo.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+            <ul>
+                <% @photo.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.file_field :image %><br>
+    <label>Description</label><br>
+    <%= f.text_field :description, class: "form-control" %><br>
+    <br>
+    <%= f.submit class: "btn btn-outline-dark" %>
+
+  <% end %>
+</div>
