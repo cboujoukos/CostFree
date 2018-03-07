@@ -19,39 +19,40 @@
       <label>Description</label><br>
       <%= f.text_area :description, class: "form-control" %><br>
     </div>
-
-    <fieldset>
-      <legend>Location</legend>
-      <%= f.fields_for :location do |location_fields| %>
-      <%= location_fields.hidden_field :user_id, value: current_user.id %>
-      <div class="form-group">
-        <label>Street Address 1</label><br>
-        <%= location_fields.text_field :street_address_1, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <label>Street Address 2</label><br>
-        <%= location_fields.text_field :street_address_2, class: "form-control" %>
-      </div>
-      <div class="form-row">
-        <div class="col">
-          <label>City</label>
-          <%= location_fields.text_field :city, class: "form-control" %>
+    <% if !activity.id %>
+      <fieldset>
+        <legend>Location</legend>
+        <%= f.fields_for :location do |location_fields| %>
+        <%= location_fields.hidden_field :user_id, value: current_user.id %>
+        <div class="form-group">
+          <label>Street Address 1</label><br>
+          <%= location_fields.text_field :street_address_1, class: "form-control" %>
         </div>
-        <div class="col">
-          <label>State</label>
-          <%= location_fields.text_field :state, class: "form-control" %>
+        <div class="form-group">
+          <label>Street Address 2</label><br>
+          <%= location_fields.text_field :street_address_2, class: "form-control" %>
         </div>
-        <div class="col">
-          <label>Zip Code</label>
-          <%= location_fields.text_field :zip_code, class: "form-control" %>
+        <div class="form-row">
+          <div class="col">
+            <label>City</label>
+            <%= location_fields.text_field :city, class: "form-control" %>
+          </div>
+          <div class="col">
+            <label>State</label>
+            <%= location_fields.text_field :state, class: "form-control" %>
+          </div>
+          <div class="col">
+            <label>Zip Code</label>
+            <%= location_fields.text_field :zip_code, class: "form-control" %>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label>Country</label><br>
-        <%= location_fields.country_select :country, priority_countries: ["US"], priority_countries_divider: "~~~~~~", class: "form-control" %><br>
-      </div>
-      <% end %>
-    </fieldset>
+        <div class="form-group">
+          <label>Country</label><br>
+          <%= location_fields.country_select :country, priority_countries: ["US"], priority_countries_divider: "~~~~~~", class: "form-control" %><br>
+        </div>
+        <% end %>
+      </fieldset>
+    <% end %>
     <br>
     <legend>Categories</legend><br>
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :title) do |b| %>

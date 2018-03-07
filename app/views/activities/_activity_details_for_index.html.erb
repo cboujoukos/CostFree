@@ -8,7 +8,21 @@
     <div class="card-body">
       <h3><%= activity.title %></h3>
       <p class="card-text"><%= activity.description %></p>
-      <p><%= activity.avg_rating %></p>
+      <% if activity.avg_rating == "No reviews" %>
+        No reviews
+      <% else %>
+        <% activity.avg_rating.floor.times do %>
+          <span class="star fa fa-star checked"></span>
+        <% end %>
+        <% if activity.avg_rating - activity.avg_rating.floor > 0.25 && activity.avg_rating - activity.avg_rating.floor < 0.75 %>
+          <span class="fas fa-star-half checked"></span>
+        <% elsif activity.avg_rating - activity.avg_rating.floor > 0.75 %>
+            <span class="star fa fa-star checked"></span>
+        <% end %>
+        <% (5 - activity.avg_rating).floor.times do %>
+          <span class="star fa fa-star"></span>
+        <% end %>
+      <% end %>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
           <%= button_to "View", activity_path(activity), method: :get, class: "btn btn-sm btn-outline-secondary" unless params[:action] == 'show' && params[:controller] == 'activities' %>

@@ -19,6 +19,11 @@ class PhotosController < ApplicationController
     end
   end
 
+  def show
+    @activity = Activity.find_by(id: params[:activity_id])
+    @photo = Photo.find_by(id: params[:id])
+  end
+
   private
   def photo_params
     params.require(:photo).permit(:description, :activity_id, :image, :user_id)

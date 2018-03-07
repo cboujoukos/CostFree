@@ -3,7 +3,7 @@ class Category < ApplicationRecord
   has_many :activities, through: :activity_categories
   validates :title, presence: true, uniqueness: true
 
-  has_attached_file :icon, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "question-mark.png"
+  has_attached_file :icon, styles: { medium: "300x300>", thumb: "100x100>" } 
   validates_attachment_content_type :icon, content_type: /\Aimage\/.*\z/
 
   def self.popular_categories

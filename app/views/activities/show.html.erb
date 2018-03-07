@@ -19,16 +19,15 @@
           <%= link_to "All Activities", activities_path, class: "btn btn-outline-dark" %>
         </div>
       </div>
-
     </div>
     <% if @activity.location %>
       <%= render partial: 'locations/location_card', locals: { location: @activity.location } %>
     <% end %>
   </div>
-
-
   <br>
 </div>
+
+
 
 <div class="album bg-light py-5 px-5 my-5">
   <div class="row justify-content-between">

@@ -62,6 +62,7 @@
  /////////////////////////////////////
 
  .thumb {
+   background-color: #efefef;
    height: 100px;
    width: 100px
  }
@@ -72,6 +73,10 @@
 
  .star.checked {
     color: orange;
+}
+
+.fas.checked {
+  color: orange;
 }
 
 /////////////FOOTER////////////////

@@ -2,8 +2,12 @@
   <% categories.each do |category|%>
     <div class="col mb-3">
       <div class="card thumb box-shadow">
-        <%= link_to category.title, category_path(category) %>
+        <% if !!category.icon %>
+            <%= image_tag category.icon, size: "98x98"%>
+        <% end %>
+
       </div>
+      <%= link_to category.title, category_path(category) %>
     </div>
   <% end %>
   <br><br>
