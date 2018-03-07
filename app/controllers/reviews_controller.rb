@@ -38,6 +38,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    raise params.inspect
+  end
+
   private
 
   def review_params

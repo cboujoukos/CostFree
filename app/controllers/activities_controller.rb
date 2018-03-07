@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
-  before_action :require_login, only: [:new, :create, :edit, :update]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :update, :destroy]
 
   def index
     @activities = Activity.all
@@ -39,6 +40,12 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @activity = Activity.find_by(id: params[:id])
+    @activity.destroy
+    redirect_to root_path
+  end
+
   def most_popular
     with_null = Activity.no_reviews
     without_null = Activity.most_popular
@@ -52,5 +59,11 @@ class ActivitiesController < ApplicationController
     params.require(:activity).permit(:user_id, :title, :description, :suggested_duration, :category_ids => [], location_attributes: [:user_id, :street_address_1, :street_address_2, :city, :state, :zip_code, :country])
   end
 
+  def authorize
+    unless current_user.try(:admin?) || current_user.id == Activity.find_by(id: params[:id]).user_id
+      flash[:error] = "You are not authorized to view this page."
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
 end

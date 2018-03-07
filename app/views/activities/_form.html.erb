@@ -19,7 +19,7 @@
       <label>Description</label><br>
       <%= f.text_area :description, class: "form-control" %><br>
     </div>
-    <% if !activity.id %>
+    <% if !activity.id || current_user.admin? %>
       <fieldset>
         <legend>Location</legend>
         <%= f.fields_for :location do |location_fields| %>
@@ -62,3 +62,5 @@
     <%= f.submit class: "btn btn-outline-dark" %>
 
   <% end %>
+  <br>
+  <%= button_to "Delete Activity", activity, :method => :delete, class: "btn btn-outline-danger" if !!activity.id && (current_user.try(:admin?) || current_user.id == activity.user_id) %>
