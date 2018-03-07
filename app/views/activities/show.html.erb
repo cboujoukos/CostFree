@@ -9,14 +9,19 @@
       <span><%= category.title %> &emsp;</span>
       <% end %>
       <br><br>
+      <% if @activity.photos.count > 0 %>
+        <%= image_tag @activity.photos.first.image.url(:medium) %>
+      <% end %>
+      <br><br>
       <div class="row justify-content-between">
         <div class="col">
-          <%= link_to "Edit Activity", edit_activity_path(@activity), class: "btn btn-outline-dark" if current_user.try(:admin?) || @activity.user_id == current_user.try(:id) %><br>
+          <%= link_to "View gallery", activity_photos_path(@activity), class: "btn btn-outline-dark" %><br>
           <%= link_to "Uplod a photo", new_activity_photo_path(@activity), class: "btn btn-outline-dark" if signed_in?%><br>
-          <%= link_to "View Gallery", activity_photos_path(@activity), class: "btn btn-outline-dark" %>
+
         </div>
         <div class="col-md-3">
-          <%= link_to "All Activities", activities_path, class: "btn btn-outline-dark" %>
+          <%= link_to "Edit activity", edit_activity_path(@activity), class: "btn btn-outline-dark" if current_user.try(:admin?) || @activity.user_id == current_user.try(:id) %><br>
+          <%= link_to "All activities", activities_path, class: "btn btn-outline-dark" %>
         </div>
       </div>
     </div>
@@ -27,15 +32,13 @@
   <br>
 </div>
 
-
-
 <div class="album bg-light py-5 px-5 my-5">
   <div class="row justify-content-between">
     <div class="col">
       <h3>Reviews</h3>
     </div>
     <div class="col-md-3">
-      <%= link_to "Write a Review", new_activity_review_path(@activity), class: "btn btn-outline-dark" %>
+      <%= link_to "Write a review", new_activity_review_path(@activity), class: "btn btn-outline-dark" %>
     </div>
   </div>
   <br>

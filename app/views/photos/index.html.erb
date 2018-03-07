@@ -1,12 +1,17 @@
 <div class="album bg-light py-5 px-5 my-5">
   <h1><%= @activity.title %></h1>
   <br>
-  <div class="row">
-    <% @photos.each do |photo| %>
-      <div class="col">
-        <%= image_tag photo.image.url(:medium) %>
-        <p><%= photo.description %></p>
-      </div>
-    <% end %>
-  </div>
+  <% if @activity.photos.count > 0 %>
+    <div class="row">
+      <% @photos.each do |photo| %>
+        <div class="col">
+          <%= image_tag photo.image.url(:medium) %>
+          <p><%= photo.description %></p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>There are currently no photos in this gallery</p>
+  <% end %>
+  <%= link_to "Uplod a photo", new_activity_photo_path(@activity), class: "btn btn-outline-dark" if signed_in?%><br>
 </div>
