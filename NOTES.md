@@ -43,9 +43,11 @@ XXXX-- If i try to update an activity it creates a new activity
 
 
 CONTEXT: HOME PAGE CSS
--- New activity button shifts outside of container in smaller viewports
+XXXX-- New activity button shifts outside of container in smaller viewports
 -- LETS ADD A FOOTER
 -- Bootstrap col's are not defaulting to equal height.. WHY?!
 
 CONTEXT: ACTIVITY SHOW PAGE
 XXXX-- New review button shifts outside of container in smaller viewports
+
+ACTIVITY AVG_RATING 
