@@ -11,8 +11,9 @@
       <br><br>
       <div class="row justify-content-between">
         <div class="col">
-          <%= link_to "Edit Activity", edit_activity_path(@activity), class: "btn btn-outline-dark" %><br>
-          <%= link_to "Uplod a photo", new_activity_photo_path(@activity), class: "btn btn-outline-dark" if signed_in?%>
+          <%= link_to "Edit Activity", edit_activity_path(@activity), class: "btn btn-outline-dark" if current_user.try(:admin?) || @activity.user_id == current_user.try(:id) %><br>
+          <%= link_to "Uplod a photo", new_activity_photo_path(@activity), class: "btn btn-outline-dark" if signed_in?%><br>
+          <%= link_to "View Gallery", activity_photos_path(@activity), class: "btn btn-outline-dark" %>
         </div>
         <div class="col-md-3">
           <%= link_to "All Activities", activities_path, class: "btn btn-outline-dark" %>

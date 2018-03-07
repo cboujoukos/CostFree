@@ -1,1 +1,5 @@
 This is the gallery of <%= @activity.title %>
+<br>
+<%= @photos.each do |photo| %>
+  <%= image_tag photo.image.url(:medium) %>
+<% end %>

@@ -5,15 +5,22 @@ class PhotosController < ApplicationController
   end
 
   def new
+    @activity = Activity.find_by(id: params[:activity_id])
     @photo = Photo.new
   end
 
   def create
-    raise params.inspect
+    @activity = Activity.find_by(id: params[:activity_id])
+    @photo = Photo.new(photo_params)
+    if @photo.save
+      redirect_to @activity
+    else
+      render "new"
+    end
   end
 
   private
   def photo_params
-    params.require(:photo).permit(:description)
+    params.require(:photo).permit(:description, :activity_id, :image, :user_id)
   end
 end

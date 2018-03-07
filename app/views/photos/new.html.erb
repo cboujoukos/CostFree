@@ -12,6 +12,8 @@
             </ul>
         </div>
     <% end %>
+    <%= f.hidden_field :activity_id, value: @activity.id %>
+    <%= f.hidden_field :user_id, value: current_user.try(:id) %>
     <%= f.file_field :image %><br>
     <label>Description</label><br>
     <%= f.text_field :description, class: "form-control" %><br>
