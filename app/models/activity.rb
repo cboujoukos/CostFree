@@ -1,4 +1,5 @@
 class Activity < ApplicationRecord
+  belongs_to :user
   has_many :activity_categories
   has_many :categories, through: :activity_categories
   has_many :reviews
@@ -17,7 +18,11 @@ class Activity < ApplicationRecord
   end
 
   def avg_rating
-    self.reviews.collect{|r| r.rating}.inject(0){|sum,x| sum + x }/self.reviews.count.to_f
+    if !reviews.empty?
+      self.reviews.collect{|r| r.rating}.inject(0){|sum,x| sum + x }/self.reviews.count.to_f
+    else
+      "No reviews"
+    end
   end
 
   def self.no_reviews

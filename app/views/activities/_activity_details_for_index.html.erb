@@ -4,6 +4,7 @@
     <div class="card-body">
       <h3><%= activity.title %></h3>
       <p class="card-text"><%= activity.description %></p>
+      <p><%= activity.avg_rating %></p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
           <%= button_to "View", activity_path(activity), method: :get, class: "btn btn-sm btn-outline-secondary" unless params[:action] == 'show' && params[:controller] == 'activities' %>
