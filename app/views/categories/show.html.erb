@@ -6,6 +6,8 @@
     </div>
     <div class="col-3">
       <%= link_to "All Categories", categories_path, class: "btn btn-outline-dark" %>
+      <br>
+      <%= link_to "Edit Category", edit_category_path(@category), class: "btn btn-outline-dark" if current_user.try(:admin?) %>
     </div>
   </div>
 

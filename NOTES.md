@@ -53,3 +53,5 @@ XXXX-- New review button shifts outside of container in smaller viewports
 ACTIVITY AVG_RATING (half stars)
 
 ATTACH ICON IMAGE TO EACH CATEGORY
+
+QUESTION: why is current_user undefined when called from rails console?
