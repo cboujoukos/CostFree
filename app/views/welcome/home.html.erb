@@ -10,10 +10,12 @@
               <div class="col">
                 <div class="card thumb box-shadow">
                   <% if !!category.icon %>
-                      <%= image_tag category.icon, size: "98x98"%>
+                      <%= link_to category_path(category) do %>
+                        <%= image_tag category.icon, size: "98x98" %>
+                      <% end %>
                   <% end %>
                 </div>
-                <%= link_to category.title, category_path(category) %>
+                <%= link_to category.title, category_path(category), class: "text-info" %>
               </div>
             <% end %>
             <br><br>
