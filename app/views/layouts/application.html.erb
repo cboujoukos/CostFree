@@ -9,7 +9,7 @@
 
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -24,11 +24,14 @@
       <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
       <%= content_tag(:div, flash[:danger], :id => "flash_danger") if flash[:danger] %>
 
-      <%= yield %>
+      <div id="body-wrapper">
+        <%= yield %>
+      </div>
     </div>
+
     <footer class="footer">
       <div class="container">
-        <span class="">Place sticky footer content here.</span>
+        <%= render "layouts/footer" %>
       </div>
     </footer>
 

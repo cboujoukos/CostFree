@@ -39,6 +39,12 @@
     // background-color: #d7e6e8
   }
 
+  #body-wrapper {
+    min-height: 400px;
+   margin-bottom: 300px;
+   clear: both;
+  }
+
   .jumbotron {
     // background-color: white
   }
@@ -87,9 +93,11 @@
    bottom: 0;
    left: 0;
    padding: 1rem;
-   background-color: #efefef;
+   margin-top: 1rem;
+   background-color: #383838;
+   color: white;
    text-align: center;
-  overflow: hidden;
+   overflow: hidden;
 }
 
 ////////////Trying to get col's equal height (SHOULD DEFAULT TO THIS!)/////////
