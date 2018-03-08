@@ -27,7 +27,6 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    binding.pry
     @user = User.find_by(id: params[:user_id])
     @profile = @user.profile
     @profile.update(profile_params)

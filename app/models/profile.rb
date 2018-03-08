@@ -7,7 +7,6 @@ class Profile < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def categories_attributes=(categories_attributes)
-    binding.pry
     categories_attributes.values.each do |category_attributes|
       if category_attributes[:id] != ""
         category = Category.find_by(id: category_attributes[:id])
