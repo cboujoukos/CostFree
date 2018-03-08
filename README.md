@@ -1,11 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CostFree is a crowd-sourced review platform for free and inexpensive activities.
 
-Things you may want to cover:
+#Getting Started
 
-* Ruby version
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+#Prerequisites
+
+Use the command below to make sure you have all the required gems installed.
+
+* bundle install
+
+
+
+* Ruby version 2.3.3
 
 * System dependencies
 
