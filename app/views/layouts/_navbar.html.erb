@@ -39,15 +39,9 @@
       <% end %>
     </ul>
     <% if user_signed_in? %>
-      <% if current_user.try(:profile) %>
-        <span class="navbar-text">
-          <%= link_to current_user.email, new_user_profile_path(current_user),class: "nav-link" %>
-        </span>
-      <% else %>
-        <span class="navbar-text">
-          <%= link_to current_user.email, edit_user_profile_path(current_user),class: "nav-link" %>
-        </span>
-      <% end %>
+      <span class="navbar-text">
+        <%= link_to current_user.email, user_profile_path(current_user),class: "nav-link" %>
+      </span>
     <% end %>
     <!--
     <form class="form-inline my-2 my-lg-0">
