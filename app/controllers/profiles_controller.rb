@@ -10,7 +10,6 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    raise params.inspect
     @user = User.find_by(id: params[:user_id])
     @profile = Profile.new(profile_params)
     if @profile.save
@@ -23,6 +22,6 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:user_id, :username, :avatar)
+    params.require(:profile).permit(:user_id, :username, :avatar, :categories_attributes => [:id, :rating] )
   end
 end

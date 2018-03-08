@@ -4,10 +4,18 @@
     <label>Username</label><br>
     <%= f.text_field :username, class: "form-control" %>
     <label>Avatar</label><br>
-    <%= f.file_field :avatar, class: "form-control" %><br>
+    <%= f.file_field :avatar %><br>
 
     <legend>Interests</legend>
-
+    Select your top three interests
+    <br>
+    <h4>#1</h4>
+    <%= render partial: "profiles/category_select", locals: { index: 1, f: f } %>
+    <h4>#2</h4>
+    <%= render partial: "profiles/category_select", locals: { index: 2, f: f } %>
+    <h4>#3</h4>
+    <%= render partial: "profiles/category_select", locals: { index: 3, f: f } %>
+    <br>
     <%= f.submit class: "btn btn-outline-dark" %>
 
   <% end %>

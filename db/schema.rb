@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308160244) do
+ActiveRecord::Schema.define(version: 20180308165207) do
 
   create_table "activities", force: :cascade do |t|
     t.string "title"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 20180308160244) do
     t.integer "activity_id"
     t.index ["activity_id"], name: "index_photos_on_activity_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
+  create_table "profile_categories", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "category_id"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_profile_categories_on_category_id"
+    t.index ["profile_id"], name: "index_profile_categories_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
