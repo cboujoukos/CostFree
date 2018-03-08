@@ -1,4 +1,4 @@
-<%= f.select :categories, Category.all.map{|x| [x.title, x.id]}, {:include_blank => '-'}, :selected => " ", :name => "profile[category_attributes][#{index}][id]" %><br>
+<%= f.select :categories, Category.all.map{|x| [x.title, x.id]}, {:include_blank => '-'}, :selected => " ", :name => "profile[categories_attributes][#{index}][id]" %><br>
 <label>Rating (1-5)</label><br>
-<input type="text" name="profile[category_attributes][<%= index %>][rating]" value=""><br>
+<input type="text" name="profile[categories_attributes][<%= index %>][rating]" value=""><br>
 <br>
