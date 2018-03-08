@@ -56,7 +56,7 @@
     <br>
     <legend>Categories</legend><br>
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :title) do |b| %>
-      <%= b.label(class: "label-checkbox") { b.check_box + b.object.title} %>
+      <%= b.label(class: "label-checkbox") { b.check_box + b.object.title } %>
     <% end %>
     <br>
     <%= f.submit class: "btn btn-outline-dark" %>
