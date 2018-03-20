@@ -15,6 +15,11 @@ class Location < ApplicationRecord
     end
   end
 
+  def self.most_popular_locations
+    joins(:activities).group(:id).order('count(activities.id) DESC')
+  end
+
+
   def activities_attributes=(activities_attributes)
     activities_attributes.each do |i, activity_attributes|
       if !activity_attributes[:title].blank? && !activity_attributes[:description].blank?
