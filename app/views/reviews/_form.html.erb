@@ -19,7 +19,14 @@
 
   <label>Comments</label><br>
   <%= f.text_area :comment, class: "form-control" %><br>
+  <div class="row justify-content-between">
+    <div class="col">
+      <%= f.submit class: "btn btn-outline-dark" %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to "Back to activity", activity_path(@activity), class: "btn btn-outline-dark" %>
+    </div>
+  </div>
 
-  <%= f.submit class: "btn btn-outline-dark" %>
 
 <% end %>

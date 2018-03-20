@@ -13,5 +13,12 @@
   <% else %>
     <p>There are currently no photos in this gallery</p>
   <% end %>
-  <%= link_to "Uplod a photo", new_activity_photo_path(@activity), class: "btn btn-outline-dark" if signed_in?%><br>
+  <div class="row justify-content-between">
+    <div class="col">
+      <%= link_to "Upload a photo", new_activity_photo_path(@activity), class: "btn btn-outline-dark" if signed_in?%>
+    </div>
+    <div class="col-md-3">
+      <%= link_to "Back to activity", activity_path(@activity), class: "btn btn-outline-dark" %>
+    </div>
+  </div>
 </div>

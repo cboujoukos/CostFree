@@ -18,7 +18,15 @@
     <label>Description</label><br>
     <%= f.text_field :description, class: "form-control" %><br>
     <br>
-    <%= f.submit class: "btn btn-outline-dark" %>
+    <div class="row justify-content-between">
+      <div class="col">
+        <%= f.submit class: "btn btn-outline-dark" %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to "Back to activity", activity_path(@activity), class: "btn btn-outline-dark" %>
+      </div>
+    </div>
+
 
   <% end %>
 </div>
