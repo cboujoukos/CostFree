@@ -54,4 +54,4 @@ ACTIVITY AVG_RATING (half stars)
 
 XXXX--ATTACH ICON IMAGE TO EACH CATEGORY
 
-QUESTION: why is current_user undefined when called from rails console?
+ADD AUTHORIZATIONS T PROFILE & PHOTOS

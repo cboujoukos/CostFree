@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :authorize, only: [:edit, :update, :destroy]
 
   def show
     @user = User.find_by(id: params[:user_id])
@@ -41,5 +42,12 @@ class ProfilesController < ApplicationController
   private
   def profile_params
     params.require(:profile).permit(:user_id, :username, :avatar, :categories_attributes => [:id, :rating] )
+  end
+
+  def authorize
+    unless current_user.try(:admin?) || current_user.id == params[:id]
+      flash[:error] = "You are not authorized to view this page."
+      redirect_back(fallback_location: root_path)
+    end
   end
 end
