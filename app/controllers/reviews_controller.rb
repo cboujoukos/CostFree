@@ -5,6 +5,11 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.where(activity_id = params[:id])
+    respond_to do |f|
+      f.html {render :index}
+      f.json { render json: @reviews, status:200 }
+      # f.json {raise params.inspect}
+    end
   end
 
   def new

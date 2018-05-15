@@ -37,6 +37,8 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 
+gem 'active_model_serializers'
+
 gem 'font-awesome-rails'
 
 gem 'omniauth'

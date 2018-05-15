@@ -4,10 +4,18 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+    respond_to do |f|
+      f.html {render :index}
+      f.json {render json: @activities, status: 200}
+    end
   end
 
   def show
     @activity = Activity.find(params[:id])
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @activity, status: 200}
+    end
   end
 
   def new

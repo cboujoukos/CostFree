@@ -41,6 +41,9 @@
       <%= link_to "Write a review", new_activity_review_path(@activity), class: "btn btn-outline-dark" %>
     </div>
   </div>
+  <div id="review_form">
+
+  </div>
   <br>
   <% @activity.reviews.each do |review| %>
     <div class="review-box card rounded">
@@ -63,18 +66,20 @@
           <p><%= review.updated_at.strftime("%m/%d/%Y") %></p>
         </div>
       </div>
-    </div>
-    <% if current_user == review.user %>
-    <div class="row justify-content-between">
-      <div class="col">
-        <%= link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark" %>
+      <% if current_user == review.user %>
+      <div class="row justify-content-between">
+        <div class="col">
+          <%= link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark ml-2" %>
+        </div>
+        <div class="col-md-3">
+          <%= link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
+        </div>
       </div>
-      <div class="col-md-3">
-        <%= link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
-      </div>
+
+      <% end %>
+      <br>
     </div>
 
-    <% end %>
     <br><br>
 
   <% end %>
