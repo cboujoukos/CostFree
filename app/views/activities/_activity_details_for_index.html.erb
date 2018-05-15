@@ -6,8 +6,9 @@
       <%= image_tag activity.photos.first.image.url, class: "card-img-top", style: "height: 225px; width: 100%; display: block;" %>
     <% end %>
     <div class="card-body">
-      <h3><%= activity.title %></h3>
-      <p class="card-text"><%= activity.description %></p>
+      <h3><%= truncate activity.title %></h3>
+      <!-- STAR RATING SYSTEM -->
+      <p class="card-text"><%= truncate activity.description, length: 50 %></p>
       <% if activity.avg_rating == "No reviews" %>
         No reviews
       <% else %>

@@ -41,6 +41,7 @@
       <%= link_to "Write a review", new_activity_review_path(@activity), class: "btn btn-outline-dark" %>
     </div>
   </div>
+  <a href="#" id="test-link">Click me</a>
   <div id="review_form">
 
   </div>
@@ -83,4 +84,11 @@
     <br><br>
 
   <% end %>
-</div
+</div>
+<!-- <script type="text/javascript">
+  $("#test-link").click(function(e){
+    e.preventDefault();
+    $("#review_form").html("<%# escape_javascript(render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.build } ) %>")
+
+  })
+</script> -->
