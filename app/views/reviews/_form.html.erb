@@ -62,7 +62,14 @@
     let values = $(this).serialize();
     let posting = $.post("/activities/" + "<%= @activity.id %>" + "/reviews", values);
     posting.done(function(data){
-      debugger;
+      console.log(data);
+      $("#newReview").show();
+      $("#review_form_placeholder").html("");
+      $("#review_form_btn").toggle();
+      $("#reviewTitle").text(data["title"]);
+      $("#reviewComment").text(data["comment"]);
+      $("reviewUserEmail").text(data["user"]["email"]);
+      $("reviewUpdatedAt").text(data["updated_at"]);
     })
   })
 </script>

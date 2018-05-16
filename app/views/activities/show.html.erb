@@ -42,12 +42,39 @@
       <h3>Reviews</h3>
     </div>
     <div class="col-md-3">
-      <button type="button" class="btn btn-outline-dark" id="review_form">Write a review</button>
+      <button type="button" class="btn btn-outline-dark" id="review_form_btn">Write a review</button>
       <!-- <%# link_to "Write a review", new_activity_review_path(@activity), class: "btn btn-outline-dark" %> -->
     </div>
   </div>
   <!-- <a href="#" id="review_form">Click me</a> -->
   <br>
+
+  <div id="newReview" style="display:none" class="mb-5">
+    <div class="review-box card rounded">
+
+      <div class="card-header">
+
+        <!-- <span class="star fa fa-star <%# "checked" if review.rating > 0 %>"></span>
+        <span class="star fa fa-star <%# "checked" if review.rating > 1 %>"></span>
+        <span class="star fa fa-star <%# "checked" if review.rating > 2 %>"></span>
+        <span class="star fa fa-star <%# "checked" if review.rating > 3 %>"></span>
+        <span class="star fa fa-star <%# "checked" if review.rating > 4 %>"></span> -->
+        <span id="reviewTitle"></span>
+      </div>
+      <div class="card-body">
+        <div class="comment-box">
+          <p id="reviewComment"></p>
+        </div>
+        <div class="card-footer">
+          <p id="reviewUserEmail"></p>
+          <p id="reviewUpdatedAt"><%# review.updated_at.strftime("%m/%d/%Y") %></p>
+        </div>
+      </div>
+
+      <br>
+    </div>
+  </div>
+
   <% @activity.reviews.each do |review| %>
     <div class="review-box card rounded">
 
@@ -88,9 +115,9 @@
   <% end %>
 </div>
 <script type="text/javascript">
-  $("#review_form").click(function(e){
+  $("#review_form_btn").click(function(e){
     e.preventDefault();
     $("#review_form_placeholder").html("<%= j(render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.build } ) %>");
-    $("#review_form").toggle();
+    $("#review_form_btn").toggle();
   })
 </script>
