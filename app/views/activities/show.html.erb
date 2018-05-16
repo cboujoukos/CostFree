@@ -54,11 +54,9 @@
 
       <div class="card-header">
 
-        <!-- <span class="star fa fa-star <%# "checked" if review.rating > 0 %>"></span>
-        <span class="star fa fa-star <%# "checked" if review.rating > 1 %>"></span>
-        <span class="star fa fa-star <%# "checked" if review.rating > 2 %>"></span>
-        <span class="star fa fa-star <%# "checked" if review.rating > 3 %>"></span>
-        <span class="star fa fa-star <%# "checked" if review.rating > 4 %>"></span> -->
+        <div style="display:inline" id="starsDiv">
+          <%= render partial: "reviews/test_partial" %>
+        </div>
         <span id="reviewTitle"></span>
       </div>
       <div class="card-body">
