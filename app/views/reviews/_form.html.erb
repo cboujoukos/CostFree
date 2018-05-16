@@ -9,7 +9,7 @@
         </div>
     <% end %>
 <h2>Review of <%= @activity.title %></h2>
-<%= form_for([ :activity, review]) do |f| %>
+<%= form_for([ activity, review]) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :activity_id, value: activity.id %>
   <label>Title</label><br>
@@ -28,8 +28,11 @@
     <div class="col">
       <%= f.submit class: "btn btn-outline-dark" %>
     </div>
+    <!-- <div class="col-md-3">
+      <%# link_to "Back to activity", activity_path(@activity), class: "btn btn-outline-dark" %>
+    </div> -->
     <div class="col-md-3">
-      <%= link_to "Back to activity", activity_path(@activity), class: "btn btn-outline-dark" %>
+      <button type="button" class="btn btn-outline-dark">Cancel</button>
     </div>
   </div>
 

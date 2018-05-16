@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
-    
+    # @review = Review.new
     respond_to do |f|
       f.html {render :show}
       f.json {render json: @activity, status: 200}
