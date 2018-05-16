@@ -26,20 +26,43 @@
   <%= f.text_area :comment, class: "form-control" %><br>
   <div class="row justify-content-between">
     <div class="col">
+      <!-- <% if review.persisted? %>
+        <%= f.submit class: "btn btn-outline-dark" %>
+      <% else %>
+        <button type="button" class="btn btn-outline-dark" id="submit_new_review">Create Review</button>
+      <% end %> -->
       <%= f.submit class: "btn btn-outline-dark" %>
     </div>
     <!-- <div class="col-md-3">
       <%# link_to "Back to activity", activity_path(@activity), class: "btn btn-outline-dark" %>
     </div> -->
     <div class="col-md-3">
-      <button type="button" class="btn btn-outline-dark">Cancel</button>
+      <button type="button" class="btn btn-outline-dark" id="remove_form">Cancel</button>
     </div>
   </div>
 
-
 <% end %>
+
 <script type="text/javascript">
   $(".star").click(function(e){
     alert(this)
+  })
+</script>
+
+<script type="text/javascript">
+  $("#remove_form").click(function(e){
+    $("#review_form_placeholder").html("");
+    $("#review_form").toggle()
+  })
+</script>
+
+<script type="text/javascript">
+  $("form#new_review").submit(function(e){
+    e.preventDefault();
+    let values = $(this).serialize();
+    let posting = $.post("/activities/" + "<%= @activity.id %>" + "/reviews", values);
+    posting.done(function(data){
+      debugger;
+    })
   })
 </script>
