@@ -1,6 +1,24 @@
 config.scoped_views (initializers/devise.rb) is set to true to allow for customization of devise user views. SET TO FALSE if no customization.
 
 
+/////////////// JQUERY FRONTEND ////////////////////
+
+
+-Need to fix the EDIT REVIEW button in activity show page
+
+-Change review "card" to a partial and prepend a new partial when user submits new review through jquery on activity show page
+
+-Move all jquery code to its own js file in asset pipeline?
+  -attach event listeners within a ready fn
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
 
 
 XXXX-- Help setting up admin role. (Pundit/CanCanCan/other)

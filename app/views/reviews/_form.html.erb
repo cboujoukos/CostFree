@@ -65,15 +65,12 @@
       console.log(data);
       $("#newReview").show();
       $("#review_form_placeholder").html("");
-      $("#review_form_btn").toggle();
+      // $("#review_form_btn").toggle();
       $("#reviewTitle").text(data["title"]);
+      $("#reviewId").text(data["id"])
       $("#reviewComment").text(data["comment"]);
       $("#reviewUserEmail").text(data["user"]["email"]);
       $("#reviewUpdatedAt").text(data["updated_at"].slice(5,10).replace('-','/') + "/" + data["updated_at"].slice(0,4));
-      let rating = data["rating"];
-      // if (data["rating"] < 6){
-      //   debugger;
-      // }
       let checkedStars = $("[data-value]").filter(function() {
         return  $(this).attr("data-value") <= parseInt(data["rating"]);
       });

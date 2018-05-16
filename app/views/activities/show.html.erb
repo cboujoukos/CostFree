@@ -46,7 +46,6 @@
       <!-- <%# link_to "Write a review", new_activity_review_path(@activity), class: "btn btn-outline-dark" %> -->
     </div>
   </div>
-  <!-- <a href="#" id="review_form">Click me</a> -->
   <br>
 
   <div id="newReview" style="display:none" class="mb-5">
@@ -55,9 +54,10 @@
       <div class="card-header">
 
         <div style="display:inline" id="starsDiv">
-          <%= render partial: "reviews/test_partial" %>
+          <%= render partial: "reviews/star_ratings" %>
         </div>
         <span id="reviewTitle"></span>
+        <span id="reviewId" style="visibility:hidden"></span>
       </div>
       <div class="card-body">
         <div class="comment-box">
@@ -65,10 +65,18 @@
         </div>
         <div class="card-footer">
           <p id="reviewUserEmail"></p>
-          <p id="reviewUpdatedAt"><%# review.updated_at.strftime("%m/%d/%Y") %></p>
+          <p id="reviewUpdatedAt"></p>
         </div>
       </div>
-
+      <div class="row justify-content-between">
+        <div class="col">
+          <%# link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark ml-2" %>
+          <button id="edit_review_btn" type="button" class="btn btn-outline-dark">Edit your review</button>
+        </div>
+        <div class="col-md-3">
+          <%# link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
+        </div>
+      </div>
       <br>
     </div>
   </div>
@@ -115,7 +123,15 @@
 <script type="text/javascript">
   $("#review_form_btn").click(function(e){
     e.preventDefault();
-    $("#review_form_placeholder").html("<%= j(render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.build } ) %>");
+    let reviewId = $("#reviewId").innerHTML
+    $("#review_form_placeholder").html("<%= j(render partial: 'reviews/form', locals: { activity: @activity, review: Review.find(NOT DONE WITH THIS FN) } ) %>");
     $("#review_form_btn").toggle();
+  })
+</script>
+
+<script type="text/javascript">
+  $("#edit_review_btn").click(function(e){
+    $("#review_form_placeholder").html("<%= j(render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.last } ) %>");
+    $("#edit_review_btn").toggle();
   })
 </script>
