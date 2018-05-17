@@ -14,8 +14,8 @@ config.scoped_views (initializers/devise.rb) is set to true to allow for customi
 
 
 
-
-
+-Does my rendering of a new review on the activity show page meet the following requirement?
+    - [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
 
 
 ///////////////////////////////////////////////////////////////////////////////////
