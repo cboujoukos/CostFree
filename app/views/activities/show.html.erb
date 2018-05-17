@@ -69,9 +69,9 @@
         </div>
       </div>
       <div class="row justify-content-between">
-        <div class="col">
+        <div class="col edit_btn_placeholder">
           <%# link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark ml-2" %>
-          <button id="edit_review_btn" type="button" class="btn btn-outline-dark">Edit your review</button>
+          <!-- <a href="#" id="edit_review_btn" role="button" class="btn btn-outline-dark">Edit your review</a> -->
         </div>
         <div class="col-md-3">
           <%# link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
@@ -123,15 +123,14 @@
 <script type="text/javascript">
   $("#review_form_btn").click(function(e){
     e.preventDefault();
-    let reviewId = $("#reviewId").innerHTML
-    $("#review_form_placeholder").html("<%= j(render partial: 'reviews/form', locals: { activity: @activity, review: Review.find(NOT DONE WITH THIS FN) } ) %>");
+    $("#review_form_placeholder").html("<%= j(render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.build } ) %>");
     $("#review_form_btn").toggle();
   })
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $("#edit_review_btn").click(function(e){
-    $("#review_form_placeholder").html("<%= j(render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.last } ) %>");
+    $("#review_form_placeholder").html("<%# j(render partial: 'reviews/form', locals: { activity: @activity, review: Review.last } ) %>");
     $("#edit_review_btn").toggle();
   })
-</script>
+</script> -->

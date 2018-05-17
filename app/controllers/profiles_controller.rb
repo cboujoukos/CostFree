@@ -45,7 +45,8 @@ class ProfilesController < ApplicationController
   end
 
   def authorize
-    unless current_user.try(:admin?) || current_user.id == params[:id]
+    unless current_user.try(:admin?) || current_user.id == params[:id] || current_user.id == params[:user_id].to_i
+      raise params.inspect
       flash[:error] = "You are not authorized to view this page."
       redirect_back(fallback_location: root_path)
     end

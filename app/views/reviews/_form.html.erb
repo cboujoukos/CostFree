@@ -36,23 +36,28 @@
     <!-- <div class="col-md-3">
       <%# link_to "Back to activity", activity_path(@activity), class: "btn btn-outline-dark" %>
     </div> -->
-    <div class="col-md-3">
-      <button type="button" class="btn btn-outline-dark" id="remove_form">Cancel</button>
-    </div>
+    <% if review.persisted? %>
+      <%= link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
+    <% else %>
+      <div class="col-md-3">
+        <button type="button" class="btn btn-outline-dark" id="remove_form">Cancel</button>
+      </div>
+    <% end %>
+
   </div>
 
 <% end %>
 
 <script type="text/javascript">
   $(".star").click(function(e){
-    alert(this)
+    console.log(this)
   })
 </script>
 
 <script type="text/javascript">
   $("#remove_form").click(function(e){
     $("#review_form_placeholder").html("");
-    $("#review_form").toggle()
+    $("#review_form_btn").toggle()
   })
 </script>
 
@@ -67,7 +72,8 @@
       $("#review_form_placeholder").html("");
       // $("#review_form_btn").toggle();
       $("#reviewTitle").text(data["title"]);
-      $("#reviewId").text(data["id"])
+      $("#reviewId").text(data["id"]);
+      $(".edit_btn_placeholder").html("<a href='/activities/" + "<%= @activity.id %>" + "/reviews/" + data['id'] + "/edit' id='edit_review_btn' role='button' class='ml-3 btn btn-outline-dark'>Edit your review</a>")
       $("#reviewComment").text(data["comment"]);
       $("#reviewUserEmail").text(data["user"]["email"]);
       $("#reviewUpdatedAt").text(data["updated_at"].slice(5,10).replace('-','/') + "/" + data["updated_at"].slice(0,4));
