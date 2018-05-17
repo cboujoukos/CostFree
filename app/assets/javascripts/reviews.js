@@ -3,13 +3,22 @@ $(function(){
 })
 
 function attachReviewListeners(){
-  $("#remove_form").click(function(e){
+
+  $("form#new_review").submit(function(e){
     e.preventDefault();
-    removeForm();
+    var $form = $(this)
+    submitNewReview($form);
   })
 }
 
-function removeForm(){
-  $("#review_form_placeholder").hide();
-  $("#review_form_btn").toggle()
+
+function submitNewReview($form){
+  var action = $form.attr("action");
+  var params = $form.serialize()
+
+  let posting = $.post(action, params)
+  posting.done(function(json){
+    console.log(json)
+    let review = new Review()
+  })
 }

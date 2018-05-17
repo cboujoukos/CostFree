@@ -61,11 +61,11 @@
   })
 </script> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $("form#new_review").submit(function(e){
     e.preventDefault();
     let values = $(this).serialize();
-    let posting = $.post("/activities/" + "<%= @activity.id %>" + "/reviews", values);
+    let posting = $.post("/activities/" + "<%# @activity.id %>" + "/reviews", values);
     posting.done(function(data){
       console.log(data);
       $("#newReview").show();
@@ -73,7 +73,7 @@
       // $("#review_form_btn").toggle();
       $("#reviewTitle").text(data["title"]);
       $("#reviewId").text(data["id"]);
-      $(".edit_btn_placeholder").html("<a href='/activities/" + "<%= @activity.id %>" + "/reviews/" + data['id'] + "/edit' id='edit_review_btn' role='button' class='ml-3 btn btn-outline-dark'>Edit your review</a>")
+      $(".edit_btn_placeholder").html("<a href='/activities/" + "<%# @activity.id %>" + "/reviews/" + data['id'] + "/edit' id='edit_review_btn' role='button' class='ml-3 btn btn-outline-dark'>Edit your review</a>")
       $("#reviewComment").text(data["comment"]);
       $("#reviewUserEmail").text(data["user"]["email"]);
       $("#reviewUpdatedAt").text(data["updated_at"].slice(5,10).replace('-','/') + "/" + data["updated_at"].slice(0,4));
@@ -83,4 +83,4 @@
       checkedStars.addClass("checked")
     })
   })
-</script>
+</script> -->
