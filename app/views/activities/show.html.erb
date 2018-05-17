@@ -33,8 +33,8 @@
 </div>
 
 <div class="album bg-light py-5 px-5 my-5">
-  <div id="review_form_placeholder">
-    <%# render partial: 'reviews/test_partial', locals: {activity: @actvity, review: @review} %>
+  <div style="display:none" id="review_form_placeholder">
+    <%= render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.build } %>
   </div>
   <br>
   <div class="row justify-content-between">
@@ -71,7 +71,7 @@
       <div class="row justify-content-between">
         <div class="col edit_btn_placeholder">
           <%# link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark ml-2" %>
-          
+
         </div>
         <div class="col-md-3">
           <%# link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
@@ -82,36 +82,37 @@
   </div>
 
   <% @activity.reviews.each do |review| %>
-    <div class="review-box card rounded">
+    <% if review.persisted? %>
+      <div class="review-box card rounded">
 
-      <div class="card-header">
+        <div class="card-header">
 
-        <span class="star fa fa-star <%= "checked" if review.rating > 0 %>"></span>
-        <span class="star fa fa-star <%= "checked" if review.rating > 1 %>"></span>
-        <span class="star fa fa-star <%= "checked" if review.rating > 2 %>"></span>
-        <span class="star fa fa-star <%= "checked" if review.rating > 3 %>"></span>
-        <span class="star fa fa-star <%= "checked" if review.rating > 4 %>"></span>
-        <%= review.title %>
-      </div>
-      <div class="card-body">
-        <div class="comment-box">
-          <p><%= review.comment %></p>
+          <span class="star fa fa-star <%= "checked" if review.rating > 0 %>"></span>
+          <span class="star fa fa-star <%= "checked" if review.rating > 1 %>"></span>
+          <span class="star fa fa-star <%= "checked" if review.rating > 2 %>"></span>
+          <span class="star fa fa-star <%= "checked" if review.rating > 3 %>"></span>
+          <span class="star fa fa-star <%= "checked" if review.rating > 4 %>"></span>
+          <%= review.title %>
         </div>
-        <div class="card-footer">
-          <p><%= review.user.email %></p>
-          <p><%= review.updated_at.strftime("%m/%d/%Y") %></p>
+        <div class="card-body">
+          <div class="comment-box">
+            <p><%= review.comment %></p>
+          </div>
+          <div class="card-footer">
+            <p><%= review.user.email %></p>
+            <p><%= review.updated_at.strftime("%m/%d/%Y") %></p>
+          </div>
         </div>
-      </div>
-      <% if current_user == review.user %>
-      <div class="row justify-content-between">
-        <div class="col">
-          <%= link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark ml-2" %>
+        <% if current_user == review.user %>
+        <div class="row justify-content-between">
+          <div class="col">
+            <%= link_to "Edit your review", edit_activity_review_path(id: review.id, activity_id: @activity.id), class: "btn btn-outline-dark ml-2" %>
+          </div>
+          <div class="col-md-3">
+            <%= link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
+          </div>
         </div>
-        <div class="col-md-3">
-          <%= link_to "Delete your review", activity_review_path(@activity, review), :method => :delete, class: "btn btn-outline-danger" %>
-        </div>
-      </div>
-
+        <% end %>
       <% end %>
       <br>
     </div>
@@ -120,13 +121,13 @@
 
   <% end %>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $("#review_form_btn").click(function(e){
     e.preventDefault();
-    $("#review_form_placeholder").html("<%= j(render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.build } ) %>");
+    $("#review_form_placeholder").html("<%# j(render partial: 'reviews/form', locals: { activity: @activity, review: @activity.reviews.build } ) %>");
     $("#review_form_btn").toggle();
   })
-</script>
+</script> -->
 
 <!-- <script type="text/javascript">
   $("#edit_review_btn").click(function(e){

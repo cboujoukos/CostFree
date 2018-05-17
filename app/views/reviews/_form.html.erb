@@ -16,11 +16,11 @@
   <%= f.text_field :title, class: "form-control" %><br>
   <label>How many stars would you give this activity? (Enter 1 - 5)</label>
   <%= f.text_field :rating, class: "form-control" %><br>
-  <span id="1star" class="star fa fa-star-o"></span>
-  <span id="2star" class="star fa fa-star-o"></span>
-  <span id="3star" class="star fa fa-star-o"></span>
-  <span id="4star" class="star fa fa-star-o"></span>
-  <span id="5star" class="star fa fa-star-o"></span>
+  <span id="1star" name="star-input" class="star fa fa-star-o"></span>
+  <span id="2star" name="star-input" class="star fa fa-star-o"></span>
+  <span id="3star" name="star-input" class="star fa fa-star-o"></span>
+  <span id="4star" name="star-input" class="star fa fa-star-o"></span>
+  <span id="5star" name="star-input" class="star fa fa-star-o"></span>
   <br>
   <label>Comments</label><br>
   <%= f.text_area :comment, class: "form-control" %><br>
@@ -56,7 +56,7 @@
 
 <script type="text/javascript">
   $("#remove_form").click(function(e){
-    $("#review_form_placeholder").html("");
+    $("#review_form_placeholder").hide();
     $("#review_form_btn").toggle()
   })
 </script>

@@ -4,7 +4,7 @@ config.scoped_views (initializers/devise.rb) is set to true to allow for customi
 /////////////// JQUERY FRONTEND ////////////////////
 
 
--Need to fix the EDIT REVIEW button in activity show page
+[DONE]-Need to fix the EDIT REVIEW button in activity show page
 
 -Change review "card" to a partial and prepend a new partial when user submits new review through jquery on activity show page
 
@@ -16,6 +16,10 @@ config.scoped_views (initializers/devise.rb) is set to true to allow for customi
 
 -Does my rendering of a new review on the activity show page meet the following requirement?
     - [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+
+-Ask for clarification on the following two specs:
+    - [ ] Translate JSON responses into js model objects.
+    - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
 
 
 ///////////////////////////////////////////////////////////////////////////////////
