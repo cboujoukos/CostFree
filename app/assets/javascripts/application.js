@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require handlebars-v4.0.11.js
 //= require popper
 //= require bootstrap
 //= require rails-ujs

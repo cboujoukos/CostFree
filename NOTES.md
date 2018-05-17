@@ -2,7 +2,7 @@ config.scoped_views (initializers/devise.rb) is set to true to allow for customi
 
 
 /////////////// JQUERY FRONTEND ////////////////////
-
+MY DATABASE KEEPS LOCKING EVERY OTHER TIME I INSERT A REVIEW INTO THE DATABASE
 
 [DONE]-Need to fix the EDIT REVIEW button in activity show page
 
