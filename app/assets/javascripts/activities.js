@@ -1,8 +1,8 @@
 $(function(){
-  attachListeners();
+  attachActivityListeners();
 })
 
-function attachListeners(){
+function attachActivityListeners(){
   $("#review_form_btn").click(function(e){
     e.preventDefault();
     displayReviewForm();
