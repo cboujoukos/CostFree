@@ -2,15 +2,32 @@
 <main role="main">
 
       <section class="jumbotron text-center">
-        <div class="container">
+        <div id="popCategories" class="container">
           <h1 class="jumbotron-heading">Popular Categories</h1>
           <br>
           <%= render partial: "categories/category_card", locals: { categories: @first_six_categories } %>
           <div class="row">
             <div class="col">
-              <%= link_to "See all categories", categories_path, class: "btn btn-outline-dark my-2" %>
+              <%# link_to "See all categories", categories_path, class: "btn btn-outline-dark my-2" %>
+              <button type="button" id="viewAllCategories" class="btn btn-outline-dark my-2">See all categories</button>
             </div>
 
+          </div>
+        </div>
+        <div id="allCategoriesPlaceholder" class="" style="display:none">
+          <div class="album px-5 bg-light py-5 my-5">
+            <h1 class="jumbotron-heading">All Categories</h1>
+            <div class="row justify-content-between">
+              <%= render partial: "categories/category_card", locals: {categories: @categories} %>
+            </div>
+            <div class="row">
+              <div class="col">
+
+                <button type="button" id="fewerCategories" class="btn btn-outline-dark my-2">Popular categories</button>
+              </div>
+
+            </div>
+            <%= link_to "Add New Category", new_category_path, class: "btn btn-outline-dark" if current_user.try(:admin?) %>
           </div>
         </div>
       </section>
@@ -55,5 +72,18 @@
         </div>
       </div>
 
-
     </main>
+
+  <script type="text/javascript">
+    $("#viewAllCategories").click(function(){
+      $("#popCategories").toggle();
+      $("#allCategoriesPlaceholder").show()
+    })
+  </script>
+
+  <script type="text/javascript">
+    $("#fewerCategories").click(function(){
+      $("#popCategories").toggle();
+      $("#allCategoriesPlaceholder").hide()
+    })
+  </script>
