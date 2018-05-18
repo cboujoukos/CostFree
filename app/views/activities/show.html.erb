@@ -91,11 +91,11 @@
 
   <div class="card-header">
 
-    <span class="star fa fa-star checked"></span>
-    <span class="star fa fa-star checked"></span>
-    <span class="star fa fa-star checked"></span>
-    <span class="star fa fa-star checked"></span>
-    <span class="star fa fa-star checked"></span>
+    <span id="1starHb" class="star fa fa-star checked"></span>
+    <span id="2starHb" class="star fa fa-star"></span>
+    <span id="3starHb" class="star fa fa-star"></span>
+    <span id="4starHb" class="star fa fa-star"></span>
+    <span id="5starHb" class="star fa fa-star"></span>
     {{title}}
   </div>
   <div class="card-body">
@@ -104,7 +104,7 @@
     </div>
     <div class="card-footer">
       <p>{{user_email}}</p>
-      <p>{{updated_at}}</p>
+      <p>{{formatDate updated_at}}</p>
     </div>
   </div>
   <div class="row justify-content-between">

@@ -11,11 +11,6 @@ function attachActivityListeners(){
     e.preventDefault();
     removeForm();
   })
-  $("form#new_review").submit(function(e){
-    e.preventDefault();
-    var $form = $(this)
-    submitNewReview($form);
-  })
 }
 
 function displayReviewForm(){

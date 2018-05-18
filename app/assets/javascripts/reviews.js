@@ -16,13 +16,16 @@ Review.prototype.renderReview = function(){
 }
 
 $(function(){
-  attachReviewListeners();
+   Handlebars.registerHelper('formatDate', function(timestamp){
+     return timestamp.slice(5,10).replace('-','/') + "/" + timestamp.slice(0,4);
+  })
   Review.templateSource = $("#review-template").html();
   Review.template = Handlebars.compile(Review.templateSource);
+
+  attachReviewListeners();
 })
 
 function attachReviewListeners(){
-
   $("form#new_review").submit(function(e){
     e.preventDefault();
     var $form = $(this)
@@ -37,24 +40,36 @@ function submitNewReview($form){
 
   let posting = $.post(action, params)
   posting.done(function(data){
-    console.log(data)
-    // let review = new Review(json)
-    // let reviewLi = review.renderReview();
-    //
-    // $("#reviewBox").prepend(reviewLi);
-    $("#newReview").show();
+    // console.log(data)
+    let review = new Review(data);
+    let reviewCard = review.renderReview();
+    $("#reviewBox").prepend(reviewCard);
+
+    if (review.rating > 1){
+      $("#2starHb").addClass("checked")
+    }
+    if (review.rating > 2){
+      $("#3starHb").addClass("checked")
+    }
+    if (review.rating > 3){
+      $("#4starHb").addClass("checked")
+    }
+    if (review.rating > 4){
+      $("#5starHb").addClass("checked")
+    }
+    // $("#newReview").show();
     $("#review_form_placeholder").html("");
-    // $("#review_form_btn").toggle();
-    $("#reviewTitle").text(data["title"]);
-    $("#reviewId").text(data["id"]);
-    $(".edit_btn_placeholder").html("<a href='/activities/" + data['activity']['id'] + "/reviews/" + data['id'] + "/edit' id='edit_review_btn' role='button' class='ml-3 btn btn-outline-dark'>Edit your review</a>")
-    $("#reviewComment").text(data["comment"]);
-    $("#reviewUserEmail").text(data["user"]["email"]);
-    $("#reviewUpdatedAt").text(data["updated_at"].slice(5,10).replace('-','/') + "/" + data["updated_at"].slice(0,4));
-    let checkedStars = $("[data-value]").filter(function() {
-      return  $(this).attr("data-value") <= parseInt(data["rating"]);
-    });
-    checkedStars.addClass("checked")
+    // // $("#review_form_btn").toggle();
+    // $("#reviewTitle").text(data["title"]);
+    // $("#reviewId").text(data["id"]);
+    // $(".edit_btn_placeholder").html("<a href='/activities/" + data['activity']['id'] + "/reviews/" + data['id'] + "/edit' id='edit_review_btn' role='button' class='ml-3 btn btn-outline-dark'>Edit your review</a>")
+    // $("#reviewComment").text(data["comment"]);
+    // $("#reviewUserEmail").text(data["user"]["email"]);
+    // $("#reviewUpdatedAt").text(data["updated_at"].slice(5,10).replace('-','/') + "/" + data["updated_at"].slice(0,4));
+    // let checkedStars = $("[data-value]").filter(function() {
+    //   return  $(this).attr("data-value") <= parseInt(data["rating"]);
+    // });
+    // checkedStars.addClass("checked")
 
   })
 

@@ -10,7 +10,7 @@
     <% end %>
 <h2>Review of <%= @activity.title %></h2>
 <%= form_for([ activity, review]) do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :user_id, value: current_user.try(:id) %>
   <%= f.hidden_field :activity_id, value: activity.id %>
   <label>Title</label><br>
   <%= f.text_field :title, class: "form-control" %><br>
