@@ -23,6 +23,10 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find_by(id: params[:id])
+    respond_to do |f|
+      f.json {render json: @location, include: ['activities', 'activities.*.reviews'], status: 201}
+      f.html {render 'show'}
+    end
   end
 
   def edit

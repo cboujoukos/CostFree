@@ -1,5 +1,5 @@
 class Location < ApplicationRecord
-  validates :street_address_1, presence: true
+  # validates :street_address_1, presence: true
   has_many :activities
   accepts_nested_attributes_for :activities
 
