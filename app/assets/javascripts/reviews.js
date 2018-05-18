@@ -20,9 +20,12 @@ Review.prototype.renderReview = function(){
  }
 
 $(function(){
-   Handlebars.registerHelper('formatDate', function(timestamp){
+  Handlebars.registerPartial('reviewPartial', document.getElementById('review-partial').innerHTML);
+  Handlebars.registerHelper('formatDate', function(timestamp){
      return timestamp.slice(5,10).replace('-','/') + "/" + timestamp.slice(0,4);
-  })
+  });
+
+
   Review.templateSource = $("#review-template").html();
   Review.template = Handlebars.compile(Review.templateSource);
 

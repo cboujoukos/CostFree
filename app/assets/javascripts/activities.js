@@ -1,14 +1,19 @@
-// function Activity(attributes){
-//   this.id = attributes.id;
-//   this.title = attributes.title
-//   this.description = attributes.description
-// }
-//
-// Activity.prototype.renderActivity = function(){
-//   return Activity.template(this)
-// }
+function Activity(attributes){
+  this.id = attributes.id;
+  this.title = attributes.title
+  this.description = attributes.description
+  this.reviews = attributes.reviews
+}
+
+Activity.prototype.renderActivity = function(){
+  return Activity.template(this)
+}
 
 $(function(){
+  Handlebars.registerPartial('activityPartial', document.getElementById('activity-partial').innerHTML);
+  Handlebars.registerHelper('limit', function(arr, limit){
+    return arr.slice(0,limit)
+  })
   // Activity.templateSource = $("#activity-template").html();
   // Activity.template = Handlebars.compile(Activity.templateSource);
   attachActivityListeners();
