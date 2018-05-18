@@ -60,3 +60,6 @@ function removeForm(){
 //     let review = new Review()
 //   })
 // }
+// document.addEventListener("DOMContentLoaded", function(e){
+//   init()
+// })

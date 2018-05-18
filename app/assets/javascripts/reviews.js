@@ -81,3 +81,6 @@ function submitNewReview($form){
   })
 
 }
+// document.addEventListener("DOMContentLoaded", function(e){
+//   init()
+// })
