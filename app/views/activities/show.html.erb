@@ -47,8 +47,8 @@
     </div>
   </div>
   <br>
-
-  <div id="newReview" style="display:none" class="mb-5">
+<!-- ///////// Can Remove After further testing /////////////// -->
+  <!-- <div id="newReview" style="display:none" class="mb-5">
     <div class="review-box card rounded">
 
       <div class="card-header">
@@ -79,7 +79,7 @@
       </div>
       <br>
     </div>
-  </div>
+  </div> -->
   <div id="reviewBox">
     <%= render partial: 'reviews/review_card', collection: @reviews, as: :review %>
   </div>
@@ -104,7 +104,8 @@
     </div>
     <div class="card-footer">
       <p>{{user_email}}</p>
-      <p>{{formatDate updated_at}}</p>
+      <p id="timestampHolder"></p>
+      <!-- <p>{{formatDate updated_at}}</p> -->
     </div>
   </div>
   <div class="row justify-content-between">
@@ -112,7 +113,7 @@
       <a class="btn btn-outline-dark ml-2" href="/activities/<%= @activity.id %>/reviews/{{id}}/edit">Edit your review</a>
     </div>
     <div class="col-md-3">
-      <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="/activities/<%= @activity.id %>/reviews/{{id}}">Delete your review</a>
+      <!-- <a class="btn btn-outline-danger" rel="nofollow" data-method="delete" href="/activities/<%# @activity.id %>/reviews/{{id}}">Delete your review</a> -->
     </div>
   </div>
 

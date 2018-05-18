@@ -2,24 +2,22 @@ config.scoped_views (initializers/devise.rb) is set to true to allow for customi
 
 
 /////////////// JQUERY FRONTEND ////////////////////
-MY DATABASE KEEPS LOCKING EVERY OTHER TIME I INSERT A REVIEW INTO THE DATABASE
+Throwing the following error when loading pages BEFORE having loaded an activity show page:
+  - Exception {description: undefined, fileName: undefined, lineNumber: undefined, message: "You must pass a string or Handlebars AST to Handlebars.compile. You passed undefined", name: "Error", …}
 
 [DONE]-Need to fix the EDIT REVIEW button in activity show page
 
--Change review "card" to a partial and prepend a new partial when user submits new review through jquery on activity show page
+[DONE]-Change review "card" to a partial and prepend a new partial when user submits new review through jquery on activity show page
 
 -Move all jquery code to its own js file in asset pipeline?
   -attach event listeners within a ready fn
 
-
+-Choose between handlebars helper vs prototype object method for date reformatting
 
 
 -Does my rendering of a new review on the activity show page meet the following requirement?
     - [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
 
--Ask for clarification on the following two specs:
-    - [ ] Translate JSON responses into js model objects.
-    - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
 
 
 ///////////////////////////////////////////////////////////////////////////////////

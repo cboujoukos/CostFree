@@ -15,6 +15,10 @@ Review.prototype.renderReview = function(){
   return Review.template(this)
 }
 
+ Review.prototype.reformatDate = function(){
+   return this.updated_at.slice(5,10).replace('-','/') + "/" + this.updated_at.slice(0,4)
+ }
+
 $(function(){
    Handlebars.registerHelper('formatDate', function(timestamp){
      return timestamp.slice(5,10).replace('-','/') + "/" + timestamp.slice(0,4);
@@ -37,13 +41,13 @@ function attachReviewListeners(){
 function submitNewReview($form){
   var action = $form.attr("action");
   var params = $form.serialize()
-
   let posting = $.post(action, params)
   posting.done(function(data){
-    // console.log(data)
+    console.log(data)
     let review = new Review(data);
     let reviewCard = review.renderReview();
     $("#reviewBox").prepend(reviewCard);
+    $("#timestampHolder").html(review.reformatDate());
 
     if (review.rating > 1){
       $("#2starHb").addClass("checked")
