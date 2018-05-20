@@ -10,7 +10,7 @@ Location.prototype.renderLocation = function(){
 $(function(){
   Location.templateSource = $("#location-template").html();
   Location.template = Handlebars.compile(Location.templateSource);
-  // attachLocationListeners();
+  attachLocationListeners();
 })
 
 document.addEventListener("turbolinks:load", function() {

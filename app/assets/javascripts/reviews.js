@@ -27,7 +27,7 @@ $(function(){
   Review.templateSource = $("#review-template").html();
   Review.template = Handlebars.compile(Review.templateSource);
 
-  // attachReviewListeners();
+  attachReviewListeners();
 })
 
 document.addEventListener("turbolinks:load", function() {

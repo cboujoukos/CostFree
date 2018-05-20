@@ -16,7 +16,7 @@ $(function(){
   })
   // Activity.templateSource = $("#activity-template").html();
   // Activity.template = Handlebars.compile(Activity.templateSource);
-  <% attachActivityListeners(); %>
+  attachActivityListeners()
 })
 
 document.addEventListener("turbolinks:load", function() {
