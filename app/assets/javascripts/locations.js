@@ -10,15 +10,22 @@ Location.prototype.renderLocation = function(){
 $(function(){
   Location.templateSource = $("#location-template").html();
   Location.template = Handlebars.compile(Location.templateSource);
-  attachLocationListeners();
+  // attachLocationListeners();
 })
 
-function attachLocationListeners(){
+document.addEventListener("turbolinks:load", function() {
   $("button[data-id]").click(function(e){
     let $locButton = $(this)
     displayLocActivities($locButton)
   })
-}
+})
+
+// function attachLocationListeners(){
+//   $("button[data-id]").click(function(e){
+//     let $locButton = $(this)
+//     displayLocActivities($locButton)
+//   })
+// }
 
 function displayLocActivities(locationArg){
   let locationId = locationArg.attr('data-id')
@@ -28,7 +35,15 @@ function displayLocActivities(locationArg){
     let location = new Location(json);
     let locationActivities = location.renderLocation();
 
-    $(`#locationCard${locationId}`).after(locationActivities)
+    // $(`#locationCard${locationId}`).after(locationActivities)
+    if ($(`button[data-id=${locationId}]`).html() == "View"){
+      $(`#location${locationId}Activities`).html(locationActivities);
+      $(`button[data-id=${locationId}]`).html('Hide')
+    } else if ($(`button[data-id=${locationId}]`).html() == "Hide") {
+      $(`#location${locationId}Activities`).html("");
+      $(`button[data-id=${locationId}]`).html('View')
+    }
+
   })
 }
 

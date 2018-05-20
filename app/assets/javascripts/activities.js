@@ -16,10 +16,10 @@ $(function(){
   })
   // Activity.templateSource = $("#activity-template").html();
   // Activity.template = Handlebars.compile(Activity.templateSource);
-  attachActivityListeners();
+  <% attachActivityListeners(); %>
 })
 
-function attachActivityListeners(){
+document.addEventListener("turbolinks:load", function() {
   $("#review_form_btn").click(function(e){
     e.preventDefault();
     displayReviewForm();
@@ -28,11 +28,22 @@ function attachActivityListeners(){
     e.preventDefault();
     removeForm();
   })
-  // $("button[data-id]").click(function(e){
-  //   let $locButton = $(this)
-  //   displayLocActivities($locButton)
-  // })
-}
+})
+
+// function attachActivityListeners(){
+//   $("#review_form_btn").click(function(e){
+//     e.preventDefault();
+//     displayReviewForm();
+//   });
+//   $("#remove_form").click(function(e){
+//     e.preventDefault();
+//     removeForm();
+//   })
+//   // $("button[data-id]").click(function(e){
+//   //   let $locButton = $(this)
+//   //   displayLocActivities($locButton)
+//   // })
+// }
 
 function displayReviewForm(){
   $("#review_form_placeholder").show()

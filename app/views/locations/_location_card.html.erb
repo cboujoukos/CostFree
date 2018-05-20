@@ -21,7 +21,10 @@
           </div>
           <small class="text-muted">Last Updated:<br><%= location.updated_at.strftime("%m/%d/%Y") %></small>
         </div>
-        <%= link_to "Add an activity", new_location_activity_path(location), class: "btn btn-outline-dark" %>
+        <%= link_to "Add an activity", new_location_activity_path(location), class: "btn btn-sm btn-outline-dark" %>
+        <div id="location<%= location.id %>Activities" class="mt-2">
+
+        </div>
       </div>
 
     </div>

@@ -10,7 +10,6 @@ function Review(attributes){
 }
 
 
-
 Review.prototype.renderReview = function(){
   return Review.template(this)
 }
@@ -25,20 +24,27 @@ $(function(){
      return timestamp.slice(5,10).replace('-','/') + "/" + timestamp.slice(0,4);
   });
 
-
   Review.templateSource = $("#review-template").html();
   Review.template = Handlebars.compile(Review.templateSource);
 
-  attachReviewListeners();
+  // attachReviewListeners();
 })
 
-function attachReviewListeners(){
+document.addEventListener("turbolinks:load", function() {
   $("form#new_review").submit(function(e){
     e.preventDefault();
     var $form = $(this)
     submitNewReview($form);
   })
-}
+})
+
+// function attachReviewListeners(){
+//   $("form#new_review").submit(function(e){
+//     e.preventDefault();
+//     var $form = $(this)
+//     submitNewReview($form);
+//   })
+// }
 
 
 function submitNewReview($form){
