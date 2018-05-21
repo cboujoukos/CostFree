@@ -25,8 +25,7 @@ class ReviewsController < ApplicationController
       render json: @review, status: 201
       # redirect_to @review.activity
     else
-      # binding.pry
-      render "new"
+      render json: @review.errors
     end
   end
 

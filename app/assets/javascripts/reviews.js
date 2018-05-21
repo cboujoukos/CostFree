@@ -52,26 +52,38 @@ function submitNewReview($form){
   var params = $form.serialize()
   let posting = $.post(action, params)
   posting.done(function(data){
-    console.log(data)
-    let review = new Review(data);
-    let reviewCard = review.renderReview();
-    $("#reviewBox").prepend(reviewCard);
-    $("#timestampHolder").html(review.reformatDate());
+     console.log(data)
+    if (!data.id) {
+      console.log(typeof data)
+      var errorMessage = []
+      for (var key in data) {
+        errorMessage.push(`${key} ${data[key]}. `)
+      };
+      console.log(errorMessage.join("\n"))
+      $("#error_msg").html(errorMessage.join("\n"))
+      $("form#new_review [name=commit]").prop("disabled", false)
+    } else {
+      let review = new Review(data);
+      let reviewCard = review.renderReview();
+      $("#reviewBox").prepend(reviewCard);
+      $("#timestampHolder").html(review.reformatDate());
 
-    if (review.rating > 1){
-      $("#2starHb").addClass("checked")
+      if (review.rating > 1){
+        $("#2starHb").addClass("checked")
+      }
+      if (review.rating > 2){
+        $("#3starHb").addClass("checked")
+      }
+      if (review.rating > 3){
+        $("#4starHb").addClass("checked")
+      }
+      if (review.rating > 4){
+        $("#5starHb").addClass("checked")
+      }
+      // $("#newReview").show();
+      $("#review_form_placeholder").html("");
     }
-    if (review.rating > 2){
-      $("#3starHb").addClass("checked")
-    }
-    if (review.rating > 3){
-      $("#4starHb").addClass("checked")
-    }
-    if (review.rating > 4){
-      $("#5starHb").addClass("checked")
-    }
-    // $("#newReview").show();
-    $("#review_form_placeholder").html("");
+
     // // $("#review_form_btn").toggle();
     // $("#reviewTitle").text(data["title"]);
     // $("#reviewId").text(data["id"]);
@@ -86,8 +98,9 @@ function submitNewReview($form){
 
   })
   .fail(function(e){
-    alert("Something went wrong")
+    alert("Sorry, something went wrong")
   })
+
 }
 // document.addEventListener("DOMContentLoaded", function(e){
 //   init()

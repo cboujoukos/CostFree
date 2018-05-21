@@ -8,6 +8,9 @@
             </ul>
         </div>
     <% end %>
+  <div id="error_msg" style="color:red">
+
+  </div>
 <h2>Review of <%= @activity.title %></h2>
 <%= form_for([ activity, review]) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.try(:id) %>
@@ -51,7 +54,10 @@
 <script type="text/javascript">
   $(".star[name=star-input]").click(function(e){
     alert("Sorry, this functionality has not yet been added. Just enter a number 1-5 and let's all move on with our lives.");
-    console.log($(this).attr('data-id'))
+    console.log($(this).attr('data-id'));
+    // $(this).parent($(this).attr('data-id'));
+    // $("#review_rating").text($(this).attr('data-id'))
+    console.log($(this).parent())
   })
 </script>
 

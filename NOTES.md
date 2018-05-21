@@ -5,7 +5,7 @@ config.scoped_views (initializers/devise.rb) is set to true to allow for customi
 Throwing the following error when loading pages BEFORE having loaded an activity show page:
   - Exception {description: undefined, fileName: undefined, lineNumber: undefined, message: "You must pass a string or Handlebars AST to Handlebars.compile. You passed undefined", name: "Error", …}
 
-OOKAY.. SO THIS IS WEIRD.
+[DONE] OOKAY.. SO THIS IS WEIRD.
     I basically have sets of click events hijacked(those invloving showing/hiding a review form on activity#show page, and those that involve displaying activity info below a LOCATION on location#index page). Each time I restart my server, ONE of those two sets of click events works correctly while the second does not. But the really weird thing, is that the one that functions properly ALTERNATES?! It makes no freaking sense. Then Every oncein a while, they miraculously both work!
 
 [DONE]-Need to fix the EDIT REVIEW button in activity show page
