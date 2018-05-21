@@ -27,7 +27,7 @@ $(function(){
   Review.templateSource = $("#review-template").html();
   Review.template = Handlebars.compile(Review.templateSource);
 
-  attachReviewListeners();
+  // attachReviewListeners();
 })
 
 document.addEventListener("turbolinks:load", function() {
@@ -85,7 +85,9 @@ function submitNewReview($form){
     // checkedStars.addClass("checked")
 
   })
-
+  .fail(function(e){
+    alert("Something went wrong")
+  })
 }
 // document.addEventListener("DOMContentLoaded", function(e){
 //   init()

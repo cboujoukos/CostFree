@@ -12,8 +12,10 @@ OOKAY.. SO THIS IS WEIRD.
 
 [DONE]-Change review "card" to a partial and prepend a new partial when user submits new review through jquery on activity show page
 
--Move all jquery code to its own js file in asset pipeline?
+[DONE]-Move all jquery code to its own js file in asset pipeline?
   -attach event listeners within a ready fn
+
+-catch errors with jquery, figure out how to display fields with errors when submitting form via jquery
 
 -Choose between handlebars helper vs prototype object method for date reformatting
 

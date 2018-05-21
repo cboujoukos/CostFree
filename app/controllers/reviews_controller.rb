@@ -20,13 +20,13 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @activity = @review.activity
-
+    # render json: @review, status: 201
     if @review.save
       render json: @review, status: 201
       # redirect_to @review.activity
     else
-      binding.pry
-      render "activities/show"
+      # binding.pry
+      render "new"
     end
   end
 
