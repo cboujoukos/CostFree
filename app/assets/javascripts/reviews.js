@@ -45,7 +45,7 @@ $(function(){
 document.addEventListener("turbolinks:load", function() {
   $("form#new_review").submit(function(e){
     e.preventDefault();
-    var $form = $(this)
+    let $form = $(this)
     submitNewReview($form);
   })
 })
@@ -60,14 +60,14 @@ document.addEventListener("turbolinks:load", function() {
 
 
 function submitNewReview($form){
-  var action = $form.attr("action");
-  var params = $form.serialize()
+  let action = $form.attr("action");
+  let params = $form.serialize()
   let posting = $.post(action, params)
   posting.done(function(data){
      console.log(data)
     if (!data.id) {
       console.log(typeof data)
-      var errorMessage = []
+      let errorMessage = []
       for (var key in data) {
         errorMessage.push(`${key} ${data[key]}. `)
       };

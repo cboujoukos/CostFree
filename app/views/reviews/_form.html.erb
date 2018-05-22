@@ -19,11 +19,11 @@
   <%= f.text_field :title, class: "form-control" %><br>
   <label>How many stars would you give this activity? (Enter 1 - 5)</label>
   <%= f.text_field :rating, class: "form-control" %><br>
-  <span id="1star" data-id="1" name="star-input" class="star fa fa-star-o"></span>
-  <span id="2star" data-id="2" name="star-input" class="star fa fa-star-o"></span>
-  <span id="3star" data-id="3" name="star-input" class="star fa fa-star-o"></span>
-  <span id="4star" data-id="4" name="star-input" class="star fa fa-star-o"></span>
-  <span id="5star" data-id="5" name="star-input" class="star fa fa-star-o"></span>
+  <span id="1star" data-rating="1" name="star-input" class="star fa fa-star-o"></span>
+  <span id="2star" data-rating="2" name="star-input" class="star fa fa-star-o"></span>
+  <span id="3star" data-rating="3" name="star-input" class="star fa fa-star-o"></span>
+  <span id="4star" data-rating="4" name="star-input" class="star fa fa-star-o"></span>
+  <span id="5star" data-rating="5" name="star-input" class="star fa fa-star-o"></span>
   <br>
   <label>Comments</label><br>
   <%= f.text_area :comment, class: "form-control" %><br>
@@ -54,7 +54,7 @@
 <script type="text/javascript">
   $(".star[name=star-input]").click(function(e){
     alert("Sorry, this functionality has not yet been added. Just enter a number 1-5 and let's all move on with our lives.");
-    console.log($(this).attr('data-id'));
+    console.log($(this).attr('data-rating'));
     // $(this).parent($(this).attr('data-id'));
     // $("#review_rating").text($(this).attr('data-id'))
     console.log($(this).parent())
