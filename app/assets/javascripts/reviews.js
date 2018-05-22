@@ -1,13 +1,25 @@
-function Review(attributes){
-  this.id = attributes.id;
-  this.title = attributes.title;
-  this.rating = attributes.rating;
-  this.comment = attributes.comment;
-  this.updated_at = attributes.updated_at
-  this.activity_id = attributes['activity']['id'];
-  this.user_email = attributes['user']['email']
-  this.user_id = attributes['user']['id']
+class Review {
+  constructor(attributes){
+    this.id = attributes.id;
+    this.title = attributes.title;
+    this.rating = attributes.rating;
+    this.comment = attributes.comment;
+    this.updated_at = attributes.updated_at
+    this.activity_id = attributes['activity']['id'];
+    this.user_email = attributes['user']['email']
+    this.user_id = attributes['user']['id']
+  }
 }
+// function Review(attributes){
+//   this.id = attributes.id;
+//   this.title = attributes.title;
+//   this.rating = attributes.rating;
+//   this.comment = attributes.comment;
+//   this.updated_at = attributes.updated_at
+//   this.activity_id = attributes['activity']['id'];
+//   this.user_email = attributes['user']['email']
+//   this.user_id = attributes['user']['id']
+// }
 
 
 Review.prototype.renderReview = function(){

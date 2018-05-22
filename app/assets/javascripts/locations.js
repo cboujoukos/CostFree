@@ -1,7 +1,10 @@
-function Location(attributes){
-  this.id = attributes.id;
-  this.activities = attributes.activities
+class Location {
+  constructor(attributes){
+    this.id = attributes.id;
+    this.activities = attributes.activities
+  }
 }
+
 
 Location.prototype.renderLocation = function(){
   return Location.template(this)

@@ -1,9 +1,12 @@
-function Activity(attributes){
-  this.id = attributes.id;
-  this.title = attributes.title
-  this.description = attributes.description
-  this.reviews = attributes.reviews
+class Activity {
+  constructor(attributes) {
+    this.id = attributes.id;
+    this.title = attributes.title
+    this.description = attributes.description
+    this.reviews = attributes.reviews
+  }
 }
+
 
 Activity.prototype.renderActivity = function(){
   return Activity.template(this)
