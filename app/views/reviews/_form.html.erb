@@ -61,6 +61,56 @@
   })
 </script>
 
+
+<!-- <script type="text/javascript">
+  $("form#new_review").submit(function(e){
+    e.preventDefault();
+    let action = $(this).attr("action");
+    let params = $(this).serialize()
+    let posting = $.post(action, params)
+    // debugger;
+    posting.done(function(data){
+       console.log(data)
+      if (!!data.id) {
+        let review = new Review(data);
+        debugger;
+        let reviewCard = review.renderReview();
+        $("#reviewBox").prepend(reviewCard);
+        $("#timestampHolder").html(review.reformatDate());
+
+        if (review.rating > 1){
+          $("#2starHb").addClass("checked")
+        }
+        if (review.rating > 2){
+          $("#3starHb").addClass("checked")
+        }
+        if (review.rating > 3){
+          $("#4starHb").addClass("checked")
+        }
+        if (review.rating > 4){
+          $("#5starHb").addClass("checked")
+        }
+        // $("#newReview").show();
+        $("#review_form_placeholder").html("");
+
+      } else {
+        console.log(typeof data)
+        let errorMessage = []
+        for (var key in data) {
+          errorMessage.push(`${key} ${data[key]}. `)
+        };
+        console.log(errorMessage.join("\n"))
+        $("#error_msg").html(errorMessage.join("\n"))
+        $("form#new_review [name=commit]").prop("disabled", false)
+      }
+
+    })
+    .fail(function(e){
+      alert("Sorry, something went wrong")
+    })
+  })
+</script> -->
+
 <!-- <script type="text/javascript">
   $("#remove_form").click(function(e){
     $("#review_form_placeholder").hide();
