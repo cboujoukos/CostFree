@@ -8,8 +8,10 @@
             </ul>
         </div>
     <% end %>
-  <div id="error_msg" style="color:red">
+  <div  style="color:red">
+    <ul id="error_msg">
 
+    </ul>
   </div>
 <h2>Review of <%= @activity.title %></h2>
 <%= form_for([ activity, review]) do |f| %>

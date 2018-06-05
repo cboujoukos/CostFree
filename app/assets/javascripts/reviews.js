@@ -46,7 +46,7 @@ function submitNewReview($form){
      console.log(data)
     if (!!data.id) {
       let review = new Review(data);
-      debugger;
+      // debugger;
       let reviewCard = review.renderReview();
       $("#reviewBox").prepend(reviewCard);
       $("#timestampHolder").html(review.reformatDate());
@@ -70,10 +70,10 @@ function submitNewReview($form){
       console.log(typeof data)
       let errorMessage = []
       for (var key in data) {
-        errorMessage.push(`${key} ${data[key]}. `)
+        errorMessage.push(`<li>${key} ${data[key]}.</li>`)
       };
-      console.log(errorMessage.join("\n"))
-      $("#error_msg").html(errorMessage.join("\n"))
+      console.log(errorMessage.join().replace(/,/gi, ', '))
+      $("#error_msg").html(errorMessage.join("\n").replace(/,/gi, ', '))
       $("form#new_review [name=commit]").prop("disabled", false)
     }
   })
