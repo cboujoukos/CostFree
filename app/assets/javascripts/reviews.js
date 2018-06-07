@@ -4,10 +4,10 @@ class Review {
     this.title = attributes.title;
     this.rating = attributes.rating;
     this.comment = attributes.comment;
-    this.updated_at = attributes.updated_at
-    this.activity_id = attributes['activity']['id'];
-    this.user_email = attributes['user']['email']
-    this.user_id = attributes['user']['id']
+    this.updatedAt = attributes.updatedAt
+    this.activityId = attributes['activity']['id'];
+    this.userEmail = attributes['user']['email']
+    this.userId = attributes['user']['id']
   }
 }
 

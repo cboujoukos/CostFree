@@ -16,6 +16,16 @@ $(function(){
   Handlebars.registerPartial('activityPartial', document.getElementById('activity-partial').innerHTML);
   Handlebars.registerHelper('limit', function(arr, limit){
     return arr.slice(0,limit)
+  Handlebars.registerHelper('sort', function(arr){
+    arr.sort(function(a,b){
+      if (a.title.toUpperCase() > b.title.toUpperCase()){
+  		    return 1
+        } else if (b.title.toUpperCase() > a.title.toUpperCase()) {
+          return -1
+        }
+      return 0
+      })
+    })
   })
   // Activity.templateSource = $("#activity-template").html();
   // Activity.template = Handlebars.compile(Activity.templateSource);

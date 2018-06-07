@@ -35,6 +35,15 @@ function displayLocActivities(locationArg){
   // $(`#locationCard${locationId}`).after("<div><p>Hi.</p></div>")
   $.get(`/locations/${locationId}`, function(json){
     console.log(json)
+
+  let reviews = json.activities[0].reviews.sort(function(a,b){
+    if (a.title.toUpperCase() > b.title.toUpperCase()){
+		    return 1
+      } else if (b.title.toUpperCase() > a.title.toUpperCase()) {
+        return -1
+      }
+    return 0
+    })
     let location = new Location(json);
     let locationActivities = location.renderLocation();
 

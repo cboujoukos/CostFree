@@ -19,8 +19,8 @@ $(function(){
 document.addEventListener("turbolinks:load", function() {
   $("#viewAllCategories").click(function(e){
     // let $categoryButton = $(this)
-    // displayCategories()
-    showCategories();
+    displayCategories()
+    // showCategories();
   });
   $("#fewerCategories").click(function(){
     hideCategories();
@@ -45,14 +45,14 @@ function hideCategories(){
   $("#allCategoriesPlaceholder").hide()
 }
 
-// function displayCategories(){
-//   $.get('/categories').done(function(json){
-//     console.log(json);
-//     for (var obj in json) {
-//       let category = new Category(json[obj])
-//       console.log(category);
-//       let categoryCard = category.renderCategory();
-//       $("#testSpan").append(categoryCard)
-//     }
-//   })
-// }
+function displayCategories(){
+  $.get('/categories').done(function(json){
+    console.log(json);
+    for (var obj in json) {
+      let category = new Category(json[obj])
+      console.log(category);
+      let categoryCard = category.renderCategory();
+      $("#testSpan").append(categoryCard)
+    }
+  })
+}
