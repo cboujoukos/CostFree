@@ -51,7 +51,7 @@ document.addEventListener("turbolinks:load", function() {
 function toggleFullDescription(activityButton){
   let activityId = activityButton.attr('data-id')
   function truncate(string){
-    return string.substring(0, 45) + '...'
+    return string.substring(0, 42) + '...'
   }
 
   $.ajax({
