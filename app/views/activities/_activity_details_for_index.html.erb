@@ -8,7 +8,13 @@
     <div class="card-body">
       <h3><%= truncate activity.title %></h3>
       <!-- STAR RATING SYSTEM -->
-      <p class="card-text"><%= truncate activity.description, length: 50 %></p>
+      <div class="activityDescriptionDiv" data-id="<%= activity.id %>">
+        <p><span class="card-text"><%= truncate activity.description, length: 45 %></span>
+        <% if activity.description.length > 45 %>
+          <button data-id="<%= activity.id %>" class="full-description btn btn-sm btn-outline-secondary">more</button>
+        <% end %></p>
+      </div>
+
       <% if activity.avg_rating == "No reviews" %>
         No reviews
       <% else %>

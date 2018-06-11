@@ -27,7 +27,7 @@ $(function(){
 })
 
 document.addEventListener("turbolinks:load", function() {
-  $("button[data-id]").click(function(e){
+  $("button.location-activities[data-id]").click(function(e){
     let $locButton = $(this)
     displayLocActivities($locButton)
   })

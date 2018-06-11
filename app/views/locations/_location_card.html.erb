@@ -16,7 +16,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <%# button_to "View", location_path(location), method: :get, class: "btn btn-sm   btn-outline-secondary" unless params[:action] == 'show' && params[:controller] == 'locations' %>
-            <button type="button" data-id="<%= location.id %>" class="btn btn-sm   btn-outline-secondary">View</button>
+            <button type="button" data-id="<%= location.id %>" class="location-activities btn btn-sm   btn-outline-secondary">View</button>
             <%= button_to "Edit", edit_location_path(location), method: :get, class: "btn   btn-sm btn-outline-secondary" if current_user.try(:admin?) || location.user_id == current_user.try(:id) %>
           </div>
           <small class="text-muted">Last Updated:<br><%= location.updated_at.strftime("%m/%d/%Y") %></small>

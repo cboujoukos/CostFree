@@ -40,8 +40,38 @@ document.addEventListener("turbolinks:load", function() {
   $("#remove_form").click(function(e){
     e.preventDefault();
     removeForm();
+  });
+  $("button.full-description[data-id]").click(function(e){
+    e.preventDefault();
+    let $descButton = $(this)
+    toggleFullDescription($descButton);
   })
 })
+
+function toggleFullDescription(activityButton){
+  let activityId = activityButton.attr('data-id')
+  function truncate(string){
+    return string.substring(0, 45) + '...'
+  }
+
+  $.ajax({
+    method: "GET",
+    url: `/activities/${activityId}`,
+    dataType: "JSON",
+  })
+  .done(function(rsp){
+    console.log(rsp.description);
+    let $button = $(`button.full-description[data-id=${rsp.id}]`);
+    let $activityDescription = $(`.activityDescriptionDiv[data-id=${rsp.id}] span.card-text`)
+    if ($button.text() === "more") {
+      $activityDescription.html(rsp.description);
+      $button.text("less")
+    } else {
+      $activityDescription.html(truncate(rsp.description));
+      $button.text("more")
+    }
+  })
+}
 
 function displayReviewForm(){
   $("#review_form_placeholder").show()
