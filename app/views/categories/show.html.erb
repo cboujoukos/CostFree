@@ -10,7 +10,7 @@
       <%= link_to "Edit Category", edit_category_path(@category), class: "btn btn-outline-dark" if current_user.try(:admin?) %>
     </div>
   </div>
-
+  <br>
   <div class="container">
     <div class="row">
       <% @category.activities.each do |activity| %>

@@ -11,7 +11,7 @@ Category.prototype.renderCategory = function(){
   return Category.template(this)
 }
 
-$(function(){
+$(document).on("turbolinks:load", function(){
   Category.templateSource = $("#category-template").html();
   Category.template = Handlebars.compile(Category.templateSource);
 })
@@ -19,8 +19,8 @@ $(function(){
 document.addEventListener("turbolinks:load", function() {
   $("#viewAllCategories").click(function(e){
     // let $categoryButton = $(this)
-    displayCategories()
-    // showCategories();
+    // displayCategories()
+    showCategories();
   });
   $("#fewerCategories").click(function(){
     hideCategories();
@@ -35,6 +35,8 @@ document.addEventListener("turbolinks:load", function() {
 //   })
 // }
 
+/////////////////// Displays categories by toggling HTML content on or off /////////////
+
 function showCategories(){
   $("#popCategories").toggle();
   $("#allCategoriesPlaceholder").show()
@@ -45,14 +47,17 @@ function hideCategories(){
   $("#allCategoriesPlaceholder").hide()
 }
 
-function displayCategories(){
-  $.get('/categories').done(function(json){
-    console.log(json);
-    for (var obj in json) {
-      let category = new Category(json[obj])
-      console.log(category);
-      let categoryCard = category.renderCategory();
-      $("#testSpan").append(categoryCard)
-    }
-  })
-}
+///////////////// Displays categories through an asynch request ////////////////
+// function displayCategories(){
+//   $("#popCategories").toggle();
+//   $("#testDiv").show();
+//   $.get('/categories').done(function(json){
+//     console.log(json);
+//     for (var obj in json) {
+//       let category = new Category(json[obj])
+//       console.log(category);
+//       let categoryCard = category.renderCategory();
+//       $("#testSpan").append(categoryCard)
+//     }
+//   })
+// }

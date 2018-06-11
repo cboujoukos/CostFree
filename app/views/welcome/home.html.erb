@@ -14,14 +14,19 @@
 
           </div>
         </div>
-        <!-- <div id="testDiv">
+
+
+        <!-- Fetched Category index appended here -->
+        <div id="testDiv" style="display:none">
           <div class="album px-5 bg-light py-5 my-5">
             <h1 class="jumbotron-heading">All Categories</h1>
             <div class="row justify-content-between">
-              <span id="testSpan"></span>
+              <span id="testSpan"> <img src="/assets/icons/png/001-toast.png" alt="bicycle">
             </div>
           </div>
-        </div> -->
+        </div>
+
+        <!-- All categories toggled on/off here -->
         <div id="allCategoriesPlaceholder" class="" style="display:none">
           <div class="album px-5 pb-5">
             <h1 class="jumbotron-heading">All Categories</h1><br>
@@ -66,9 +71,9 @@
 
     </main>
 
+<!-- Category Handlebars Template -->
 
-
-  <!-- <script id="category-template" type="text/x-handlebars-template">
-    <img src="/{{icon_file_name}}">
+  <script id="category-template" type="text/x-handlebars-template">
+    <img  src="/assets/icons/png/{{icon_file_name}}" alt="{{title}}">
       {{title}}
-  </script> -->
+  </script>

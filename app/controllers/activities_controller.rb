@@ -59,7 +59,12 @@ class ActivitiesController < ApplicationController
   def most_popular
     with_null = Activity.no_reviews
     without_null = Activity.most_popular
-    @activities = without_null + with_null
+    activities = without_null + with_null
+    @popular_activities = activities.slice(0, 12)
+    respond_to do |f|
+      f.html {render :most_popular}
+      f.json {render json: @activities, status: 200}
+    end
   end
 
 

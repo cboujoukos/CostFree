@@ -16,7 +16,7 @@ Review.prototype.renderReview = function(){
 }
 
  Review.prototype.reformatDate = function(){
-   return this.updated_at.slice(5,10).replace('-','/') + "/" + this.updated_at.slice(0,4)
+   return this.updatedAt.slice(5,10).replace('-','/') + "/" + this.updatedAt.slice(0,4)
  }
 
 $(document).on("turbolinks:load", function(){
@@ -46,7 +46,6 @@ function submitNewReview($form){
      console.log(data)
     if (!!data.id) {
       let review = new Review(data);
-      // debugger;
       let reviewCard = review.renderReview();
       $("#reviewBox").prepend(reviewCard);
       $("#timestampHolder").html(review.reformatDate());

@@ -17,7 +17,7 @@ $(function(){
   Handlebars.registerHelper('limit', function(arr, limit){
     return arr.slice(0,limit)
   Handlebars.registerHelper('sort', function(arr){
-    arr.sort(function(a,b){
+    return arr.sort(function(a,b){
       if (a.title.toUpperCase() > b.title.toUpperCase()){
   		    return 1
         } else if (b.title.toUpperCase() > a.title.toUpperCase()) {
@@ -43,6 +43,17 @@ document.addEventListener("turbolinks:load", function() {
   })
 })
 
+function displayReviewForm(){
+  $("#review_form_placeholder").show()
+  $("#review_form_btn").toggle();
+}
+
+function removeForm(){
+  $("#review_form_placeholder").hide();
+  $("#review_form_btn").toggle()
+}
+
+
 // function attachActivityListeners(){
 //   $("#review_form_btn").click(function(e){
 //     e.preventDefault();
@@ -58,15 +69,7 @@ document.addEventListener("turbolinks:load", function() {
 //   // })
 // }
 
-function displayReviewForm(){
-  $("#review_form_placeholder").show()
-  $("#review_form_btn").toggle();
-}
 
-function removeForm(){
-  $("#review_form_placeholder").hide();
-  $("#review_form_btn").toggle()
-}
 
 // function displayLocActivities(location){
 //   let locationId = location.attr('data-id')
