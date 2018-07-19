@@ -17,14 +17,26 @@ $(function(){
   Handlebars.registerHelper('limit', function(arr, limit){
     return arr.slice(0,limit)
   Handlebars.registerHelper('sort', function(arr){
-    return arr.sort(function(a,b){
-      if (a.title.toUpperCase() > b.title.toUpperCase()){
-  		    return 1
-        } else if (b.title.toUpperCase() > a.title.toUpperCase()) {
-          return -1
-        }
-      return 0
-      })
+    // return arr.sort(function(a,b){
+    //   let reviewOne = a.title.toUpperCase();
+    //   let reviewTwo = b.title.toUpperCase()
+    //   if (reviewOne > reviewTwo){
+  	// 	    return 1
+    //     } else if (reviewTwo > reviewOne) {
+    //       return -1
+    //     }
+    //   return 0
+    //   })
+      return arr.sort((a,b) => {
+        let reviewOne = a.title.toUpperCase();
+        let reviewTwo = b.title.toUpperCase();
+        if (reviewOne > reviewTwo){
+    		    return 1
+          } else if (reviewTwo > reviewOne) {
+            return -1
+          }
+        return 0
+        })
     })
   })
   // Activity.templateSource = $("#activity-template").html();

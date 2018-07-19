@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center">
   <% categories.each do |category|%>
-    <div class="col mb-3">
+    <div class="col mb-3 category">
       <div class="card thumb box-shadow">
         <% if !!category.icon %>
             <%= link_to category_path(category) do %>
