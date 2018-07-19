@@ -19,7 +19,7 @@
   <%= f.hidden_field :activity_id, value: activity.id %>
   <label>Title</label><br>
   <%= f.text_field :title, class: "form-control" %><br>
-  <label>How many stars would you give this activity? (Enter 1 - 5)</label>
+  <label>How many stars would you give this activity?</label>
   <%= f.hidden_field :rating, class: "form-control", value: review.rating || "" %><br>
   <div class="">
     <span id="1star" data-rating="1" name="star-input" class="star fa <%= !!review.rating && review.rating > 0 ? "fa-star checked" : "fa-star-o" %>"></span>

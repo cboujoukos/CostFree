@@ -52,7 +52,7 @@
           <a href="/activities/{{id}}" class="btn btn-block btn-outline-dark">{{title}}</a>
           <p>{{description}}</p>
           <ul class="customLi">
-            {{#each (sort reviews)}}
+            {{#each (limit reviews 5)}}
               <li>{{>reviewPartial}}</li>
             {{/each}}
           </ul>
